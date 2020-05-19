@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using Todozo.Models;
 
 // https://www.youtube.com/watch?v=Et2khGnrIqc&list=WL&index=2&t=0s
 
 namespace Todozo
 {
     public class DataAccess
-    { 
+    {
         // All that there is to talk to our SQLServer. It is done like so.
-        public List<Task> GetListOfTasks (int listID)
+        public List<Task> GetListOfTasks(int listID)
         {
             // With these two lines, we can open a connection to SQL, get data out of it and close that connection. Beautiful code.
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
@@ -39,7 +40,7 @@ namespace Todozo
             {
 
                 List<List> taskLists = new List<List>();
-                taskLists.Add(new List { Name = name});
+                taskLists.Add(new List { Name = name });
 
                 connection.Execute("dbo.Insert_List @Name", taskLists);
             }
@@ -76,7 +77,7 @@ namespace Todozo
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
                 List<Task> tasks = new List<Task>();
-                tasks.Add(new Task {ListID = listID, Name = name, Description = description, Deadline = date, Priority = priority});
+                tasks.Add(new Task { ListID = listID, Name = name, Description = description, Deadline = date, Priority = priority });
 
                 //Need to make a stored procedure and insert the values
                 connection.Execute("dbo.Insert_Task @ListID, @Name, @Description, @Deadline, @Priority", tasks);
@@ -105,8 +106,18 @@ namespace Todozo
 
         #endregion
 
+        #region User
 
+        public void AddUser(int userID, string name, string password)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                List<User> user = new List<User>();
+                user.Add(new User{UserID = userID, Name = name, Password = password});
+                connection.Execute("dbo.AddUser @UserID, @Name, @Password", user);
+            }
+        }
 
-
+        #endregion
     }
 }

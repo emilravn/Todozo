@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Todozo.UI; // Was added when I did Application.Run (new UserRegistrationPage());
 
 namespace Todozo
 {
@@ -22,7 +23,8 @@ namespace Todozo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new HomePage());
-            Application.Run(new HomePage());
+            // Application.Run(new HomePage());
+            Application.Run(new UserRegistrationPage());
         }
 
         //Code to make the text less blurry

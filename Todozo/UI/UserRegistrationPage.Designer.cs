@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.inputTextLoginEmail = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.inputTextLoginPassword = new System.Windows.Forms.TextBox();
             this.inputTextLoginRepeatPassword = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -50,27 +50,33 @@
             // 
             // inputTextLoginEmail
             // 
+            this.inputTextLoginEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.inputTextLoginEmail.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputTextLoginEmail.Location = new System.Drawing.Point(412, 197);
+            this.inputTextLoginEmail.Location = new System.Drawing.Point(419, 189);
             this.inputTextLoginEmail.Name = "inputTextLoginEmail";
             this.inputTextLoginEmail.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginEmail.TabIndex = 2;
-            this.inputTextLoginEmail.Text = "Email";
+            this.inputTextLoginEmail.Text = "Name";
+            this.inputTextLoginEmail.UseWaitCursor = true;
+            this.inputTextLoginEmail.Enter += new System.EventHandler(this.inputTextLoginEmail_Enter);
+            this.inputTextLoginEmail.Leave += new System.EventHandler(this.inputTextLoginEmail_Leave);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(412, 332);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 37);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(419, 324);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(142, 37);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // inputTextLoginPassword
             // 
+            this.inputTextLoginPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.inputTextLoginPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputTextLoginPassword.Location = new System.Drawing.Point(412, 241);
+            this.inputTextLoginPassword.Location = new System.Drawing.Point(419, 233);
             this.inputTextLoginPassword.Name = "inputTextLoginPassword";
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginPassword.TabIndex = 2;
@@ -78,22 +84,25 @@
             // 
             // inputTextLoginRepeatPassword
             // 
+            this.inputTextLoginRepeatPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.inputTextLoginRepeatPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputTextLoginRepeatPassword.Location = new System.Drawing.Point(412, 286);
+            this.inputTextLoginRepeatPassword.Location = new System.Drawing.Point(419, 278);
             this.inputTextLoginRepeatPassword.Name = "inputTextLoginRepeatPassword";
             this.inputTextLoginRepeatPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginRepeatPassword.TabIndex = 2;
             this.inputTextLoginRepeatPassword.Text = "Repeat Password";
             // 
-            // button2
+            // btnSubmit
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(562, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 37);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(569, 324);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(142, 37);
+            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // UserRegistrationPage
             // 
@@ -101,15 +110,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1136, 696);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.inputTextLoginRepeatPassword);
             this.Controls.Add(this.inputTextLoginPassword);
             this.Controls.Add(this.inputTextLoginEmail);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(1152, 735);
             this.MinimumSize = new System.Drawing.Size(1152, 735);
             this.Name = "UserRegistrationPage";
-            this.Text = "UserRegistrationPage";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Text = "User Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,9 +130,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox inputTextLoginEmail;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox inputTextLoginPassword;
         private System.Windows.Forms.TextBox inputTextLoginRepeatPassword;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

@@ -44,21 +44,22 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1136, 194);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Create Account";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // inputTextLoginEmail
             // 
             this.inputTextLoginEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.inputTextLoginEmail.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.inputTextLoginEmail.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputTextLoginEmail.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginEmail.Location = new System.Drawing.Point(419, 189);
             this.inputTextLoginEmail.Name = "inputTextLoginEmail";
             this.inputTextLoginEmail.Size = new System.Drawing.Size(292, 29);
-            this.inputTextLoginEmail.TabIndex = 2;
+            this.inputTextLoginEmail.TabIndex = 0;
             this.inputTextLoginEmail.Text = "Name";
-            this.inputTextLoginEmail.UseWaitCursor = true;
-            this.inputTextLoginEmail.Enter += new System.EventHandler(this.inputTextLoginEmail_Enter);
+            this.inputTextLoginEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginEmail_KeyPressed);
             this.inputTextLoginEmail.Leave += new System.EventHandler(this.inputTextLoginEmail_Leave);
             // 
             // btnCancel
@@ -76,21 +77,27 @@
             // 
             this.inputTextLoginPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.inputTextLoginPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputTextLoginPassword.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginPassword.Location = new System.Drawing.Point(419, 233);
             this.inputTextLoginPassword.Name = "inputTextLoginPassword";
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
-            this.inputTextLoginPassword.TabIndex = 2;
+            this.inputTextLoginPassword.TabIndex = 1;
             this.inputTextLoginPassword.Text = "Password";
+            this.inputTextLoginPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginPassword_KeyPressed);
+            this.inputTextLoginPassword.Leave += new System.EventHandler(this.inputTextLoginPassword_Leave);
             // 
             // inputTextLoginRepeatPassword
             // 
             this.inputTextLoginRepeatPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.inputTextLoginRepeatPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputTextLoginRepeatPassword.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginRepeatPassword.Location = new System.Drawing.Point(419, 278);
             this.inputTextLoginRepeatPassword.Name = "inputTextLoginRepeatPassword";
             this.inputTextLoginRepeatPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginRepeatPassword.TabIndex = 2;
             this.inputTextLoginRepeatPassword.Text = "Repeat Password";
+            this.inputTextLoginRepeatPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginRepeatPassword_KeyPressed);
+            this.inputTextLoginRepeatPassword.Leave += new System.EventHandler(this.inputTextLoginRepeatPassword_Leave);
             // 
             // btnSubmit
             // 
@@ -99,7 +106,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(569, 324);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(142, 37);
-            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);

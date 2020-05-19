@@ -6,9 +6,6 @@ namespace Todozo.UI
 {
     public partial class UserRegistrationPage : Form
     {
-
-        private bool typedInto;
-
         public UserRegistrationPage()
         {
             InitializeComponent();
@@ -42,16 +39,10 @@ namespace Todozo.UI
                 DataAccess db = new DataAccess();
                 db.AddUser(0, inputTextLoginEmail.Text, inputTextLoginPassword.Text);
                 MessageBox.Show("Account created successfully!");
-                Clear();
             }
         }
 
-        public void Clear()
-        {
-            inputTextLoginEmail.Text = inputTextLoginPassword.Text = inputTextLoginRepeatPassword.Text = "";
-        }
-
-        private void inputTextLoginEmail_Enter(object sender, EventArgs e)
+        private void inputTextLoginEmail_KeyPressed(object sender, KeyPressEventArgs e)
         {
             if (inputTextLoginEmail.Text == "Name")
             {
@@ -66,6 +57,48 @@ namespace Todozo.UI
             {
                 inputTextLoginEmail.Text = "Name";
                 inputTextLoginEmail.ForeColor = Color.Silver;
+            }
+        }
+
+        private void inputTextLoginPassword_KeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (inputTextLoginPassword.Text == "Password")
+            {
+                inputTextLoginPassword.Text = "";
+                inputTextLoginPassword.ForeColor = Color.Black;
+                // The password character is an asterisk.
+                inputTextLoginPassword.PasswordChar = '*';
+                // The control will allow no more than 30 characters.
+                inputTextLoginPassword.MaxLength = 30;
+            }
+        }
+
+        private void inputTextLoginPassword_Leave(object sender, EventArgs e)
+        {
+            if (inputTextLoginPassword.Text == "")
+            {
+                inputTextLoginPassword.Text = "Password";
+                inputTextLoginPassword.ForeColor = Color.Silver;
+            }
+        }
+
+        private void inputTextLoginRepeatPassword_KeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (inputTextLoginRepeatPassword.Text == "Repeat Password")
+            {
+                inputTextLoginRepeatPassword.Text = "";
+                inputTextLoginRepeatPassword.ForeColor = Color.Black;
+                inputTextLoginRepeatPassword.PasswordChar = '*';
+                inputTextLoginRepeatPassword.MaxLength = 30;
+            }
+        }
+
+        private void inputTextLoginRepeatPassword_Leave(object sender, EventArgs e)
+        {
+            if (inputTextLoginRepeatPassword.Text == "")
+            {
+                inputTextLoginRepeatPassword.Text = "Repeat Password";
+                inputTextLoginRepeatPassword.ForeColor = Color.Silver;
             }
         }
     }

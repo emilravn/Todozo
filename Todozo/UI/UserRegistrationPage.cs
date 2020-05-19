@@ -13,16 +13,16 @@ namespace Todozo.UI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (inputTextLoginEmail.Text == "" && inputTextLoginPassword.Text == "")
+            if (inputTextLoginEmail.Text == "Name" && inputTextLoginPassword.Text == "Password" && inputTextLoginRepeatPassword.Text == "Repeat Password")
             {
-                MessageBox.Show("Please fill in both a name and a password.");
+                MessageBox.Show("Please fill in the fields.");
             }
 
-            else if (inputTextLoginEmail.Text == "")
+            else if (inputTextLoginEmail.Text == "Name")
             {
                 MessageBox.Show("Please fill in a name.");
             }
-            else if (inputTextLoginPassword.Text == "")
+            else if (inputTextLoginPassword.Text == "Password")
             {
                 MessageBox.Show("Please fill in a password.");
             }
@@ -30,7 +30,7 @@ namespace Todozo.UI
             {
                 MessageBox.Show("Passwords do not match.");
             }
-            else if (inputTextLoginRepeatPassword.Text == "")
+            else if (inputTextLoginRepeatPassword.Text == "Repeat Password")
             {
                 MessageBox.Show("Please confirm your password.");
             }
@@ -78,6 +78,7 @@ namespace Todozo.UI
             if (inputTextLoginPassword.Text == "")
             {
                 inputTextLoginPassword.Text = "Password";
+                inputTextLoginPassword.PasswordChar = '\0';
                 inputTextLoginPassword.ForeColor = Color.Silver;
             }
         }
@@ -98,6 +99,7 @@ namespace Todozo.UI
             if (inputTextLoginRepeatPassword.Text == "")
             {
                 inputTextLoginRepeatPassword.Text = "Repeat Password";
+                inputTextLoginRepeatPassword.PasswordChar = '\0';
                 inputTextLoginRepeatPassword.ForeColor = Color.Silver;
             }
         }

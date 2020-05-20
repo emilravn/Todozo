@@ -103,5 +103,12 @@ namespace Todozo.UI
                 inputTextLoginRepeatPassword.ForeColor = Color.Silver;
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
+            UserLoginPage LoginPage = new UserLoginPage();
+            LoginPage.Show();
+        }
     }
 }

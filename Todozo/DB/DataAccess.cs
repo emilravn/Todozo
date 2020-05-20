@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows.Forms;
 using Todozo.Models;
 
 // https://www.youtube.com/watch?v=Et2khGnrIqc&list=WL&index=2&t=0s
@@ -115,6 +116,14 @@ namespace Todozo
                 List<User> users = new List<User>();
                 users.Add(new User{Name = name, Password = password});
                 connection.Execute("dbo.AddUser @UserID, @Name, @Password", users);
+            }
+        }
+
+        public void CheckLogin(string name, string password)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'");
             }
         }
 

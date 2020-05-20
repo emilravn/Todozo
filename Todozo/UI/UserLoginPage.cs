@@ -16,5 +16,18 @@ namespace Todozo.UI
         {
             InitializeComponent();
         }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            Hide();
+            UserRegistrationPage CreateAccount = new UserRegistrationPage();
+            CreateAccount.Show();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+            db.CheckLogin(inputTextLoginName.Text, inputTextLoginPassword.Text);
+        }
     }
 }

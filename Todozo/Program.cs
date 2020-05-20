@@ -24,7 +24,8 @@ namespace Todozo
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new HomePage());
             // Application.Run(new HomePage());
-            Application.Run(new UserRegistrationPage());
+            // Application.Run(new UserRegistrationPage());
+            Application.Run(new UserLoginPage());
         }
 
         //Code to make the text less blurry

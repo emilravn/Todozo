@@ -137,6 +137,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserLoginPage.resx">
+      <DependentUpon>UserLoginPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\UserRegistrationPage.resx">
       <DependentUpon>UserRegistrationPage.cs</DependentUpon>
     </EmbeddedResource>

@@ -119,7 +119,22 @@ namespace Todozo
                 //Need to make a stored procedure and insert the values
                 connection.Execute(sql); 
             }
-        } 
+        }
+
+        public void DeleteTask(int taskID)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                // Two ways of doing it:
+                // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
+
+                string sql = $"DELETE [Task] WHERE TaskID = {taskID}";
+
+
+                //Need to make a stored procedure and insert the values
+                connection.Execute(sql);
+            }
+        }
 
         #endregion
 

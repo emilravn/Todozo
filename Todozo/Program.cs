@@ -22,10 +22,10 @@ namespace Todozo
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new HomePage());
+            Application.Run(new HomePage());
             // Application.Run(new HomePage());
             // Application.Run(new UserRegistrationPage());
-            Application.Run(new UserLoginPage());
+            //Application.Run(new UserLoginPage());
         }
 
         //Code to make the text less blurry

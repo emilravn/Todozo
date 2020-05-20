@@ -16,16 +16,18 @@ namespace Todozo
         public bool TaskClicked { get; set; } 
 
         //might delete this one 
-        public bool taskCompleted { get; set; }
+        
         public Button viewTask = new Button();
         
 
         public TaskContainer(Task task)
         {
             Name = task.Name;
+            TaskID = task.TaskID;
             Description = task.Description;
             Deadline = task.Deadline;
             Priority = task.Priority;
+            Status = task.Status;
             
             
 

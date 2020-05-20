@@ -98,25 +98,26 @@ namespace Todozo
                 // In the braces with the string, put the stored procedure!
 
                 //make a stored procedure for selecting data from task 
-                List<Task> output = connection.Query<Task>($"select Name, Status, Priority, Description, Deadline from Task where ListID = '{ listID }'").ToList();
+                List<Task> output = connection.Query<Task>($"select TaskID, Name, Status, Priority, Description, Deadline from Task where ListID = '{ listID }'").ToList();
                 return output;
             }
         }
 
-        //leave for now, needs to be edited when completed task button is implemented 
-       /* public void InsertStatus(int taskID)
+        //code that sets the status of a task to complete 
+        public void InsertStatus(int taskID)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
-                string sql = $"UPDATE Task SET Name = 'nyTest' WHERE TaskID = {taskID}";
+
+                string sql = $"UPDATE [Task] SET Status = 1 WHERE TaskID = {taskID}";
 
 
                 //Need to make a stored procedure and insert the values
                 connection.Execute(sql); 
             }
-        } */
+        } 
 
         #endregion
 

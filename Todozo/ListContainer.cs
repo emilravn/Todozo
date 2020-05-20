@@ -45,8 +45,10 @@ namespace Todozo
             edit.Height = 45;
             edit.Width = 45;
 
-
-
+            //Dock
+           //Anchor = AnchorStyles.Left;
+            //Anchor = AnchorStyles.Right;
+            //Dock = DockStyle.Bottom;
 
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -47,6 +48,18 @@ namespace Todozo
         //code that runs when the application starts 
         private void HomePage_Load(object sender, EventArgs e)
         {
+
+                // Scale our form to look like it did when we designed it.
+                 // This adjusts between the screen resolution of the design computer and the workstation. 
+
+               /* int ourScreenWidth = Screen.FromControl(this).WorkingArea.Width;
+                int ourScreenHeight = Screen.FromControl(this).WorkingArea.Height;
+                float scaleFactorWidth = (float)ourScreenWidth / 1440f;
+                float scaleFactorHeigth = (float)ourScreenHeight / 900f;
+                SizeF scaleFactor = new SizeF(scaleFactorWidth, scaleFactorHeigth);
+                Scale(scaleFactor); */
+
+
             UpdateLists();
             //ViewTask testTask = new ViewTask();
            // flowLayoutPanelTask.Controls.Add(testTask);
@@ -100,6 +113,7 @@ namespace Todozo
             }
         } 
 
+            //eventhandler that executes when the viewTask button is pressed 
             void viewTask_Click(object sender, EventArgs e)
             {
                 
@@ -138,13 +152,13 @@ namespace Todozo
         //when button is pressed, save bool to database, and retreive it again 
         void viewTask_Click_completeTask(object sender, EventArgs e)
         {
-          /*  DataAccess db = new DataAccess();
+            DataAccess db = new DataAccess();
             
             flowLayoutPanelTask.Controls.Clear();
 
             db.InsertStatus(taskButtonPressed.TaskID);
             UpdateTasks(listButtonPressed);
-            taskButtonPressed.taskCompleted = true; */ 
+            
         } 
         void viewTask_Click_deleteTask(object sender, EventArgs e)
         {

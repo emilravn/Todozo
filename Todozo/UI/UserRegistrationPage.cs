@@ -11,13 +11,35 @@ namespace Todozo.UI
             InitializeComponent();
         }
 
+        public bool CheckIfUserExist()
+        {
+            DataAccess db = new DataAccess();
+
+            bool userExist = false;
+
+            foreach (var user in db.GetUsers())
+            {
+                if (inputTextLoginEmail.Text == user.Name)
+                {
+                    userExist = true;
+                }
+            }
+
+            return userExist;
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            DataAccess db = new DataAccess();
             if (inputTextLoginEmail.Text == "Name" && inputTextLoginPassword.Text == "Password" && inputTextLoginRepeatPassword.Text == "Repeat Password")
             {
                 MessageBox.Show("Please fill in the fields.");
             }
 
+            else if (CheckIfUserExist())
+            {
+                MessageBox.Show("This user already exist.");
+            }
             else if (inputTextLoginEmail.Text == "Name")
             {
                 MessageBox.Show("Please fill in a name.");
@@ -26,7 +48,7 @@ namespace Todozo.UI
             {
                 MessageBox.Show("Please fill in a password.");
             }
-            else if (inputTextLoginPassword.Text != inputTextLoginRepeatPassword.Text && inputTextLoginRepeatPassword.Text != "")
+            else if (inputTextLoginPassword.Text != inputTextLoginRepeatPassword.Text && inputTextLoginRepeatPassword.Text != "Repeat Password")
             {
                 MessageBox.Show("Passwords do not match.");
             }
@@ -36,7 +58,6 @@ namespace Todozo.UI
             }
             else
             {
-                DataAccess db = new DataAccess();
                 db.AddUser(inputTextLoginEmail.Text, inputTextLoginPassword.Text);
                 MessageBox.Show("Account created successfully!");
             }

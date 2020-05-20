@@ -118,6 +118,14 @@ namespace Todozo
                 connection.Execute("dbo.AddUser @UserID, @Name, @Password", users);
             }
         }
+        public List<User> GetUsers()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                List<User> output = connection.Query<User>($"SELECT Name, Password FROM [User]").ToList();
+                return output;
+            }
+        }
 
         public void CheckLogin(string name, string password)
         {

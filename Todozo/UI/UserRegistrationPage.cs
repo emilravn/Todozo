@@ -37,7 +37,7 @@ namespace Todozo.UI
             else
             {
                 DataAccess db = new DataAccess();
-                db.AddUser(0, inputTextLoginEmail.Text, inputTextLoginPassword.Text);
+                db.AddUser(inputTextLoginEmail.Text, inputTextLoginPassword.Text);
                 MessageBox.Show("Account created successfully!");
             }
         }

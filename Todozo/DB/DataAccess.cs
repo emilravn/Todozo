@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows.Forms;
 using Todozo.Models;
 
 // https://www.youtube.com/watch?v=Et2khGnrIqc&list=WL&index=2&t=0s
@@ -108,13 +109,29 @@ namespace Todozo
 
         #region User
 
-        public void AddUser(int userID, string name, string password)
+        public void AddUser(string name, string password)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
-                List<User> user = new List<User>();
-                user.Add(new User{UserID = userID, Name = name, Password = password});
-                connection.Execute("dbo.AddUser @UserID, @Name, @Password", user);
+                List<User> users = new List<User>();
+                users.Add(new User{Name = name, Password = password});
+                connection.Execute("dbo.AddUser @UserID, @Name, @Password", users);
+            }
+        }
+        public List<User> GetUsers()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                List<User> output = connection.Query<User>($"SELECT Name, Password FROM [User]").ToList();
+                return output;
+            }
+        }
+
+        public void CheckLogin(string name, string password)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'");
             }
         }
 

@@ -11,33 +11,54 @@ namespace Todozo.UI
             InitializeComponent();
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        public bool CheckIfUserExist()
         {
-            if (inputTextLoginEmail.Text == "" && inputTextLoginPassword.Text == "")
+            DataAccess db = new DataAccess();
+
+            bool userExist = false;
+
+            foreach (var user in db.GetUsers())
             {
-                MessageBox.Show("Please fill in both a name and a password.");
+                if (inputTextLoginEmail.Text == user.Name)
+                {
+                    userExist = true;
+                }
             }
 
-            else if (inputTextLoginEmail.Text == "")
+            return userExist;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+            if (inputTextLoginEmail.Text == "Name" && inputTextLoginPassword.Text == "Password" && inputTextLoginRepeatPassword.Text == "Repeat Password")
+            {
+                MessageBox.Show("Please fill in the fields.");
+            }
+
+            else if (CheckIfUserExist())
+            {
+                MessageBox.Show("This user already exist.");
+            }
+            else if (inputTextLoginEmail.Text == "Name")
             {
                 MessageBox.Show("Please fill in a name.");
             }
-            else if (inputTextLoginPassword.Text == "")
+            else if (inputTextLoginPassword.Text == "Password")
             {
                 MessageBox.Show("Please fill in a password.");
             }
-            else if (inputTextLoginPassword.Text != inputTextLoginRepeatPassword.Text && inputTextLoginRepeatPassword.Text != "")
+            else if (inputTextLoginPassword.Text != inputTextLoginRepeatPassword.Text && inputTextLoginRepeatPassword.Text != "Repeat Password")
             {
                 MessageBox.Show("Passwords do not match.");
             }
-            else if (inputTextLoginRepeatPassword.Text == "")
+            else if (inputTextLoginRepeatPassword.Text == "Repeat Password")
             {
                 MessageBox.Show("Please confirm your password.");
             }
             else
             {
-                DataAccess db = new DataAccess();
-                db.AddUser(0, inputTextLoginEmail.Text, inputTextLoginPassword.Text);
+                db.AddUser(inputTextLoginEmail.Text, inputTextLoginPassword.Text);
                 MessageBox.Show("Account created successfully!");
             }
         }
@@ -78,6 +99,7 @@ namespace Todozo.UI
             if (inputTextLoginPassword.Text == "")
             {
                 inputTextLoginPassword.Text = "Password";
+                inputTextLoginPassword.PasswordChar = '\0';
                 inputTextLoginPassword.ForeColor = Color.Silver;
             }
         }
@@ -98,8 +120,16 @@ namespace Todozo.UI
             if (inputTextLoginRepeatPassword.Text == "")
             {
                 inputTextLoginRepeatPassword.Text = "Repeat Password";
+                inputTextLoginRepeatPassword.PasswordChar = '\0';
                 inputTextLoginRepeatPassword.ForeColor = Color.Silver;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
+            UserLoginPage LoginPage = new UserLoginPage();
+            LoginPage.Show();
         }
     }
 }

@@ -91,6 +91,8 @@
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginPassword.TabIndex = 10;
             this.inputTextLoginPassword.Text = "Password";
+            this.inputTextLoginPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginPassword_KeyPress);
+            this.inputTextLoginPassword.Leave += new System.EventHandler(this.inputTextLoginPassword_Leave);
             // 
             // inputTextLoginName
             // 
@@ -103,6 +105,8 @@
             this.inputTextLoginName.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginName.TabIndex = 9;
             this.inputTextLoginName.Text = "Name";
+            this.inputTextLoginName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginName_KeyPress);
+            this.inputTextLoginName.Leave += new System.EventHandler(this.inputTextLoginName_Leave);
             // 
             // label2
             // 

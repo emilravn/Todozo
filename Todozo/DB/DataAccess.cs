@@ -78,7 +78,7 @@ namespace Todozo
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
                 List<Task> tasks = new List<Task>();
-                tasks.Add(new Task {ListID = listID, Status = status, Name = name, Description = description, Deadline = date, Priority = priority} );
+                tasks.Add(new Task { ListID = listID, Status = status, Name = name, Description = description, Deadline = date, Priority = priority });
 
                 //Need to make a stored procedure and insert the values
                 connection.Execute("dbo.Insert_Task @ListID, @Status, @Name, @Description, @Deadline, @Priority", tasks);
@@ -117,9 +117,9 @@ namespace Todozo
 
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute(sql); 
+                connection.Execute(sql);
             }
-        } 
+        }
 
         #endregion
 
@@ -130,10 +130,11 @@ namespace Todozo
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
                 List<User> users = new List<User>();
-                users.Add(new User{Name = name, Password = password});
+                users.Add(new User { Name = name, Password = password });
                 connection.Execute("dbo.AddUser @UserID, @Name, @Password", users);
             }
         }
+
         public List<User> GetUsers()
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
@@ -143,13 +144,21 @@ namespace Todozo
             }
         }
 
-        public void CheckLogin(string name, string password)
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
-            {
-                connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'");
-            }
-        }
+        //public void CheckLogin(string name, string password)
+        //{
+        //    using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+        //    {
+        //        //List<User> output = connection
+        //        //    .Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'").ToList();
+        //        //return output;
+
+        //        var output = connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'");
+        //        if (output.ToList().ToString() == "1")
+        //        {
+        //            MessageBox.Show("You have logged in!");
+        //        }
+        //    }
+        //}
 
         #endregion
     }

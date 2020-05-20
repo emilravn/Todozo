@@ -11,6 +11,13 @@ namespace Todozo.UI
             InitializeComponent();
         }
 
+        public void GoBackToLogin()
+        {
+            Hide();
+            UserLoginPage LoginPage = new UserLoginPage();
+            LoginPage.Show();
+        }
+
         public bool CheckIfUserExist()
         {
             DataAccess db = new DataAccess();
@@ -60,6 +67,7 @@ namespace Todozo.UI
             {
                 db.AddUser(inputTextLoginEmail.Text, inputTextLoginPassword.Text);
                 MessageBox.Show("Account created successfully!");
+                GoBackToLogin();
             }
         }
 
@@ -127,9 +135,7 @@ namespace Todozo.UI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
-            UserLoginPage LoginPage = new UserLoginPage();
-            LoginPage.Show();
+            GoBackToLogin();
         }
     }
 }

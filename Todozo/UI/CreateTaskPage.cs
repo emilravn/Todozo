@@ -19,6 +19,7 @@ namespace Todozo
     public partial class CreateTaskPage : Form
     {
         int PriorityPick = 0;
+        bool Status = false;
 
         public CreateTaskPage()
         {
@@ -61,7 +62,7 @@ namespace Todozo
             DataAccess db = new DataAccess();
 
             //DueDate and Priority needs to be added 
-            db.InsertTask(HomePage.listButtonPressed.ListID , TaskNameTextBox.Text, DescriptionTextBox.Text, DateTimePicker.Value, PriorityPick);
+            db.InsertTask(HomePage.listButtonPressed.ListID , TaskNameTextBox.Text, DescriptionTextBox.Text, DateTimePicker.Value, PriorityPick, Status);
 
             PriorityPick = 0;
             TaskNameTextBox.Text = "";

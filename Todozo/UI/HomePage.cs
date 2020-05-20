@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Todozo
@@ -13,7 +14,8 @@ namespace Todozo
 
         //variable that stores information about the list which is selected 
         public static ListContainer listButtonPressed;
-
+        public static TaskContainer taskButtonPressed;
+        
 
 
         public HomePage()
@@ -83,7 +85,8 @@ namespace Todozo
             UpdateTasks(listButtonPressed);
         } 
 
-        //eventhandler that executes if a list i clicked on 
+        //eventhandler that executes if a list i clicked on  
+        //maybe make eventhandler public and move to homePage like the rest, and then delete listClicked bool 
         void List_Click(object sender, EventArgs e)
         {
             foreach (ListContainer i in containerLists)
@@ -95,7 +98,60 @@ namespace Todozo
                     i.ListClicked = false;
                 }
             }
+        } 
+
+            void viewTask_Click(object sender, EventArgs e)
+            {
+                
+                
+
+                foreach (TaskContainer i in contaionerTasks)
+                {
+                    if (i.TaskClicked == true)
+                    { 
+                        flowLayoutPanelTask.Controls.Clear();
+                        ViewTask viewTask = new ViewTask(i);
+                    viewTask.goBack.Click += new System.EventHandler(viewTask_Click_goBack);
+                    viewTask.moveTask.Click += new System.EventHandler(viewTask_Click_moveTask);
+                    viewTask.completeTask.Click += new System.EventHandler(viewTask_Click_completeTask);
+                    viewTask.deleteTask.Click += new System.EventHandler(viewTask_Click_deleteTask);
+                    flowLayoutPanelTask.Controls.Add(viewTask);
+                    taskButtonPressed = i;   
+                        
+                    }
+                }
+
+
+            }
+
+        void viewTask_Click_goBack(object sender, EventArgs e)
+        {
+            flowLayoutPanelTask.Controls.Clear();
+            UpdateTasks(listButtonPressed);
         }
+
+        void viewTask_Click_moveTask(object sender, EventArgs e)
+        {
+
+        } 
+
+        //when button is pressed, save bool to database, and retreive it again 
+        void viewTask_Click_completeTask(object sender, EventArgs e)
+        {
+          /*  DataAccess db = new DataAccess();
+            
+            flowLayoutPanelTask.Controls.Clear();
+
+            db.InsertStatus(taskButtonPressed.TaskID);
+            UpdateTasks(listButtonPressed);
+            taskButtonPressed.taskCompleted = true; */ 
+        } 
+        void viewTask_Click_deleteTask(object sender, EventArgs e)
+        {
+
+        }
+
+
 
         #endregion
 
@@ -129,7 +185,8 @@ namespace Todozo
             //Potentionally instead make a function that checks if the container class is already there, then dont add it again 
         }
 
-
+       
+        
         //function that clears the ContaionerTasks list and updates it accordingly to the data in the database
         public void UpdateTasks(ListContainer list)
         {
@@ -156,25 +213,7 @@ namespace Todozo
         } 
 
 
-            void viewTask_Click(object sender, EventArgs e)
-            {
-                
-                
 
-                foreach (TaskContainer i in contaionerTasks)
-                {
-                    if (i.TaskClicked == true)
-                    { 
-                        flowLayoutPanelTask.Controls.Clear();
-                        ViewTask viewTask = new ViewTask(i);
-                    flowLayoutPanelTask.Controls.Add(viewTask);
-                        
-                        
-                    }
-                }
-
-
-            }
 
 
 

@@ -71,17 +71,17 @@ namespace Todozo
         #region Task 
 
         //code that inserts tasks into the database
-        public void InsertTask(int listID, string name, string description, DateTime date, int priority)
+        public void InsertTask(int listID, string name, string description, DateTime date, int priority, bool status)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
                 List<Task> tasks = new List<Task>();
-                tasks.Add(new Task { ListID = listID, Name = name, Description = description, Deadline = date, Priority = priority });
+                tasks.Add(new Task {ListID = listID, Status = status, Name = name, Description = description, Deadline = date, Priority = priority} );
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute("dbo.Insert_Task @ListID, @Name, @Description, @Deadline, @Priority", tasks);
+                connection.Execute("dbo.Insert_Task @ListID, @Status, @Name, @Description, @Deadline, @Priority", tasks);
             }
         }
 
@@ -100,10 +100,26 @@ namespace Todozo
                 // In the braces with the string, put the stored procedure!
 
                 //make a stored procedure for selecting data from task 
-                List<Task> output = connection.Query<Task>($"select Name, Priority, Deadline from Task where ListID = '{ listID }'").ToList();
+                List<Task> output = connection.Query<Task>($"select TaskID, Name, Status, Priority, Description, Deadline from Task where ListID = '{ listID }'").ToList();
                 return output;
             }
         }
+
+        //code that sets the status of a task to complete 
+        public void InsertStatus(int taskID)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                // Two ways of doing it:
+                // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
+
+                string sql = $"UPDATE [Task] SET Status = 1 WHERE TaskID = {taskID}";
+
+
+                //Need to make a stored procedure and insert the values
+                connection.Execute(sql); 
+            }
+        } 
 
         #endregion
 

@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.TopPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.ProfileButton = new System.Windows.Forms.Button();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelList = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelTask = new System.Windows.Forms.FlowLayoutPanel();
             this.CreateTaskButton = new System.Windows.Forms.Button();
             this.CreateListButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanelList = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelTask = new System.Windows.Forms.FlowLayoutPanel();
             this.TopPanel.SuspendLayout();
-            this.BottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -69,6 +69,15 @@
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(705, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -77,6 +86,16 @@
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // LogoutButton
             // 
@@ -112,32 +131,6 @@
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(1513, 94);
             this.BottomPanel.TabIndex = 1;
-            // 
-            // flowLayoutPanelList
-            // 
-            this.flowLayoutPanelList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.flowLayoutPanelList.AutoScroll = true;
-            this.flowLayoutPanelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.flowLayoutPanelList.Location = new System.Drawing.Point(0, 100);
-            this.flowLayoutPanelList.Name = "flowLayoutPanelList";
-            this.flowLayoutPanelList.Size = new System.Drawing.Size(329, 649);
-            this.flowLayoutPanelList.TabIndex = 2;
-            this.flowLayoutPanelList.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            // 
-            // flowLayoutPanelTask
-            // 
-            this.flowLayoutPanelTask.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelTask.AutoScroll = true;
-            this.flowLayoutPanelTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.flowLayoutPanelTask.Location = new System.Drawing.Point(357, 100);
-            this.flowLayoutPanelTask.Name = "flowLayoutPanelTask";
-            this.flowLayoutPanelTask.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
-            this.flowLayoutPanelTask.Size = new System.Drawing.Size(1144, 649);
-            this.flowLayoutPanelTask.TabIndex = 3;
-            this.flowLayoutPanelTask.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelTask_Paint);
             // 
             // CreateTaskButton
             // 
@@ -183,24 +176,31 @@
             this.CreateListButton.UseVisualStyleBackColor = false;
             this.CreateListButton.Click += new System.EventHandler(this.CreateListButton_Click);
             // 
-            // button1
+            // flowLayoutPanelList
             // 
-            this.button1.Location = new System.Drawing.Point(705, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.flowLayoutPanelList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanelList.AutoScroll = true;
+            this.flowLayoutPanelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.flowLayoutPanelList.Location = new System.Drawing.Point(0, 100);
+            this.flowLayoutPanelList.Name = "flowLayoutPanelList";
+            this.flowLayoutPanelList.Size = new System.Drawing.Size(329, 649);
+            this.flowLayoutPanelList.TabIndex = 2;
+            this.flowLayoutPanelList.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
-            // pictureBox1
+            // flowLayoutPanelTask
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.flowLayoutPanelTask.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelTask.AutoScroll = true;
+            this.flowLayoutPanelTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.flowLayoutPanelTask.Location = new System.Drawing.Point(357, 100);
+            this.flowLayoutPanelTask.Name = "flowLayoutPanelTask";
+            this.flowLayoutPanelTask.Padding = new System.Windows.Forms.Padding(200, 0, 0, 0);
+            this.flowLayoutPanelTask.Size = new System.Drawing.Size(1144, 649);
+            this.flowLayoutPanelTask.TabIndex = 3;
+            this.flowLayoutPanelTask.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelTask_Paint);
             // 
             // HomePage
             // 
@@ -218,8 +218,8 @@
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
-            this.BottomPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.BottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

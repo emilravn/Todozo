@@ -13,20 +13,26 @@ namespace Todozo
         public string Description { get; set; }
         public DateTime Deadline { get; set; }
         public int Priority { get; set; }
-        public bool TaskClicked { get; set; }
-        public Button viewTask = new Button();
+        public bool TaskClicked { get; set; } 
 
+        //might delete this one 
+        
+        public Button viewTask = new Button();
+        
 
         public TaskContainer(Task task)
         {
             Name = task.Name;
+            TaskID = task.TaskID;
             Description = task.Description;
             Deadline = task.Deadline;
             Priority = task.Priority;
+            Status = task.Status;
             
             
 
             BackColor = System.Drawing.Color.FromArgb(235, 236, 240);
+            
             Width = 383;
             Height = 226; 
 
@@ -111,7 +117,14 @@ namespace Todozo
             viewTask.Height = 45;
             viewTask.Width = 45;
 
+            if (Status == true)
+            {
+                BackColor = System.Drawing.Color.FromArgb(62, 191, 92);
+            }
+
         }
+
+
 
 
     }

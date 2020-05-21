@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Todozo.Models;
 
@@ -42,7 +43,7 @@ namespace Todozo
             {
 
                 List<List> taskLists = new List<List>();
-                taskLists.Add(new List { Name = name, UserID = userID});
+                taskLists.Add(new List { Name = name, UserID = userID });
 
                 connection.Execute("dbo.Insert_List @Name, @UserID", taskLists);
             }
@@ -157,13 +158,39 @@ namespace Todozo
 
         #region User
 
+
+        // If you hash a string (or other data) you will receive a string that is impossible to transform back to it's original form.
+        // But the key thing is that you will always get the same result if you use the same hash algorithm.
+        public static string HashSHA1(string value)
+        {
+            // I'm using SHA-1 which will return a string with a length of 40 no matter what the input value is. If you hash a megabyte of plain text, the hash would still be 40 characters long. 
+            var sha1 = System.Security.Cryptography.SHA1.Create();
+            var inputBytes = Encoding.ASCII.GetBytes(value);
+            var hash = sha1.ComputeHash(inputBytes);
+
+            var sb = new StringBuilder();
+            for (var i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+
+            return sb.ToString();
+        }
+
         public void AddUser(string name, string password)
         {
+
+            // First create a new Guid for the user. This will be unique for each user.
+            Guid userGuid = Guid.NewGuid();
+
+            // Hash the password together with our unique userGuid.
+            string hashedPassword = HashSHA1(password + userGuid.ToString());
+
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
                 List<User> users = new List<User>();
-                users.Add(new User { Name = name, Password = password });
-                connection.Execute("dbo.AddUser @UserID, @Name, @Password", users);
+                users.Add(new User { Name = name, Password = hashedPassword, UserGuid = userGuid});
+                connection.Execute($"dbo.AddUser @UserID, @Name, @Password, @UserGuid", users);
             }
         }
 
@@ -200,7 +227,6 @@ namespace Todozo
                 return output;
             }
         }
-
 
         #endregion
     }

@@ -48,10 +48,16 @@ namespace Todozo.UI
 
                 foreach (var user in db.CheckLogin(inputTextLoginName.Text))
                 {
-                    if (user.Password == inputTextLoginPassword.Text)
+                    string dbPassword = Convert.ToString(user.Password);
+                    string dbUserGuid = Convert.ToString(user.UserGuid);
+
+                    // Now we hash the UserGuid from the database with the password we wan't to check
+                    // In the same way as when we saved it to the database in the first place. (see AddUser() function)
+                    string hashedPassword = DataAccess.HashSHA1(inputTextLoginPassword.Text + dbUserGuid);
+
+                    if (dbPassword == hashedPassword)
                     {
                         activeUser = user;
-                        
                         HomePage homePage = new HomePage();
                         homePage.Show(); 
                         Close();

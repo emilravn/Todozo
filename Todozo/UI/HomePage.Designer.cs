@@ -32,7 +32,7 @@
             this.TopPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.UserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.ProfileButton = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.TopPanel.Controls.Add(this.panel1);
             this.TopPanel.Controls.Add(this.button1);
-            this.TopPanel.Controls.Add(this.label1);
+            this.TopPanel.Controls.Add(this.UserName);
             this.TopPanel.Controls.Add(this.pictureBox1);
             this.TopPanel.Controls.Add(this.LogoutButton);
             this.TopPanel.Controls.Add(this.ProfileButton);
@@ -78,14 +78,15 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // UserName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(497, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.UserName.AutoSize = true;
+            this.UserName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.UserName.Location = new System.Drawing.Point(1381, 12);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(75, 17);
+            this.UserName.TabIndex = 6;
+            this.UserName.Text = "UserName";
             // 
             // pictureBox1
             // 
@@ -108,6 +109,7 @@
             this.LogoutButton.TabIndex = 3;
             this.LogoutButton.Text = "Log-out";
             this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // ProfileButton
             // 
@@ -235,7 +237,7 @@
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button CreateTaskButton;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
     }

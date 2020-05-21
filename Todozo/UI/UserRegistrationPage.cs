@@ -13,12 +13,12 @@ namespace Todozo.UI
 
         public void GoBackToLogin()
         {
-            Hide();
             UserLoginPage LoginPage = new UserLoginPage();
-            LoginPage.Show();
+            LoginPage.Show(); 
+            Close();
         }
 
-        public bool CheckIfUserExist()
+        public static bool CheckIfUserExist(TextBox input)
         {
             DataAccess db = new DataAccess();
 
@@ -26,7 +26,7 @@ namespace Todozo.UI
 
             foreach (var user in db.GetUsers())
             {
-                if (inputTextLoginEmail.Text == user.Name)
+                if (input.Text.ToLower() == user.Name.ToLower())
                 {
                     userExist = true;
                 }
@@ -43,7 +43,7 @@ namespace Todozo.UI
                 MessageBox.Show("Please fill in the fields.");
             }
 
-            else if (CheckIfUserExist())
+            else if (CheckIfUserExist(inputTextLoginEmail))
             {
                 MessageBox.Show("This user already exist.");
             }

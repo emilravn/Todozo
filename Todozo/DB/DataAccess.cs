@@ -35,22 +35,22 @@ namespace Todozo
         #region List 
 
         //code that inserts lists in the database 
-        public void InsertList(string name)
+        public void InsertList(string name, int userID)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
 
                 List<List> taskLists = new List<List>();
-                taskLists.Add(new List { Name = name });
+                taskLists.Add(new List { Name = name, UserID = userID});
 
-                connection.Execute("dbo.Insert_List @Name", taskLists);
+                connection.Execute("dbo.Insert_List @Name, @UserID", taskLists);
             }
         }
 
         //code that retrieves the list in the database 
         //reminder --> when the user is implemented, only retrieve lists that match the userID
 
-        public List<List> GetLists()
+        public List<List> GetLists(int UserID)
         {
             // With these two lines, we can open a connection to SQL, get data out of it and close that connection. Beautiful code.
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
@@ -61,7 +61,8 @@ namespace Todozo
                 // In the braces with the string, put the stored procedure!
 
                 //make a stored procedure for selecting data from task 
-                List<List> output = connection.Query<List>($"select ListID, Name from List").ToList();
+                //List<List> output = connection.Query<List>($"SELECT ListID, Name FROM List INNER JOIN [User] ON List.{UserID} = [User].UserID").ToList(); 
+                List<List> output = connection.Query<List>($"SELECT ListID, Name FROM List WHERE UserID = '{UserID}'").ToList();
                 return output;
             }
         }
@@ -81,7 +82,7 @@ namespace Todozo
                 tasks.Add(new Task { ListID = listID, Status = status, Name = name, Description = description, Deadline = date, Priority = priority });
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute("dbo.Insert_Task @ListID, @Status, @Name, @Description, @Deadline, @Priority", tasks);
+                connection.Execute("dbo.Insert_Task @TaskID, @ListID, @Status, @Name, @Description, @Deadline, @Priority", tasks);
             }
         }
 
@@ -173,7 +174,17 @@ namespace Todozo
         //            MessageBox.Show("You have logged in!");
         //        }
         //    }
-        //}
+        //} 
+
+        public List<User> CheckLogin(string name)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                List<User> output = connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}'").ToList();
+                return output;
+            }
+        }
+
 
         #endregion
     }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Todozo.Models;
 
 namespace Todozo.UI
 {
     public partial class UserLoginPage : Form
     {
+        public static User activeUser;
         public UserLoginPage()
         {
             InitializeComponent();
@@ -13,9 +15,10 @@ namespace Todozo.UI
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            Hide();
+            
             UserRegistrationPage CreateAccount = new UserRegistrationPage();
-            CreateAccount.Show();
+            CreateAccount.Show(); 
+            Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -36,9 +39,28 @@ namespace Todozo.UI
             }
             else
             {
-                //DataAccess db = new DataAccess();
-                //db.CheckLogin(inputTextLoginName.Text, inputTextLoginPassword.Text);
-                MessageBox.Show("Functionality not yet implemented. Account checks needed.");
+                DataAccess db = new DataAccess();
+                UserRegistrationPage.CheckIfUserExist(inputTextLoginName);
+                if (!UserRegistrationPage.CheckIfUserExist(inputTextLoginName))
+                {
+                    MessageBox.Show("account does not exist");
+                }
+
+                foreach (var user in db.CheckLogin(inputTextLoginName.Text))
+                {
+                    if (user.Password == inputTextLoginPassword.Text)
+                    {
+                        activeUser = user;
+                        
+                        HomePage homePage = new HomePage();
+                        homePage.Show(); 
+                        Close();
+                    } 
+                    else
+                    {
+                        MessageBox.Show("Password does not match account name");
+                    }
+                }
             }
         }
 
@@ -54,7 +76,12 @@ namespace Todozo.UI
         {
             if (inputTextLoginPassword.Text == "Password")
             {
+
                 inputTextLoginPassword.Text = "";
+                // The password character is an asterisk.
+                inputTextLoginPassword.PasswordChar = '*';
+                // The control will allow no more than 30 characters.
+                inputTextLoginPassword.MaxLength = 30;
             }
         }
 
@@ -71,6 +98,7 @@ namespace Todozo.UI
             if (inputTextLoginPassword.Text == "")
             {
                 inputTextLoginPassword.Text = "Password";
+                inputTextLoginPassword.PasswordChar = '\0';
             }
         }
     }

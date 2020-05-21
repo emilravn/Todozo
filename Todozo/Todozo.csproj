@@ -72,6 +72,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditTaskPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditTaskPage.Designer.cs">
+      <DependentUpon>EditTaskPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -123,6 +129,9 @@
     <Compile Include="ViewTask.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="EditTaskPage.resx">
+      <DependentUpon>EditTaskPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CreateListPage.resx">
       <DependentUpon>CreateListPage.cs</DependentUpon>
     </EmbeddedResource>

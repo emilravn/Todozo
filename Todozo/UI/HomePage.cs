@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using Todozo.UI;
 
 namespace Todozo
 {
@@ -48,7 +49,7 @@ namespace Todozo
         //code that runs when the application starts 
         private void HomePage_Load(object sender, EventArgs e)
         {
-
+            UserName.Text = $"Logged in as {UserLoginPage.activeUser.Name}";
             // Scale our form to look like it did when we designed it.
             // This adjusts between the screen resolution of the design computer and the workstation. 
             Rectangle resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
@@ -191,7 +192,7 @@ namespace Todozo
             containerLists.Clear();
             flowLayoutPanelList.Controls.Clear();
 
-            foreach (List i in db.GetLists())
+            foreach (List i in db.GetLists(UserLoginPage.activeUser.UserID))
             {
                 containerLists.Add(new ListContainer(i));
             }
@@ -235,7 +236,7 @@ namespace Todozo
 
             //code that creates a new eventhandler for the edit button
             
-        } 
+        }
 
 
 
@@ -246,5 +247,17 @@ namespace Todozo
 
         #endregion
 
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            
+            UserLoginPage userLoginPage = new UserLoginPage();
+            userLoginPage.Show(); 
+            Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

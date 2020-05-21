@@ -49,15 +49,22 @@ namespace Todozo
         private void HomePage_Load(object sender, EventArgs e)
         {
 
-                // Scale our form to look like it did when we designed it.
-                 // This adjusts between the screen resolution of the design computer and the workstation. 
-
-               /* int ourScreenWidth = Screen.FromControl(this).WorkingArea.Width;
+            // Scale our form to look like it did when we designed it.
+            // This adjusts between the screen resolution of the design computer and the workstation. 
+            Rectangle resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
+            
+            if (resolution.Width == 1920 && resolution.Height == 1080)
+            {
+                int ourScreenWidth = Screen.FromControl(this).WorkingArea.Width;
                 int ourScreenHeight = Screen.FromControl(this).WorkingArea.Height;
                 float scaleFactorWidth = (float)ourScreenWidth / 1440f;
                 float scaleFactorHeigth = (float)ourScreenHeight / 900f;
                 SizeF scaleFactor = new SizeF(scaleFactorWidth, scaleFactorHeigth);
-                Scale(scaleFactor); */
+                Scale(scaleFactor); 
+
+            }
+
+
 
 
             UpdateLists();
@@ -162,7 +169,11 @@ namespace Todozo
         } 
         void viewTask_Click_deleteTask(object sender, EventArgs e)
         {
+            DataAccess db = new DataAccess();
 
+            flowLayoutPanelTask.Controls.Clear();
+            db.DeleteTask(taskButtonPressed.TaskID);
+            UpdateTasks(listButtonPressed);
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -72,7 +73,7 @@ namespace Todozo
         #region Task 
 
         //code that inserts tasks into the database
-        public void InsertTask(int listID, string name, string description, DateTime date, int priority, bool status)
+        public void InsertTask( int listID, string name, string description, DateTime date, int priority, bool status)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
@@ -82,7 +83,7 @@ namespace Todozo
                 tasks.Add(new Task { ListID = listID, Status = status, Name = name, Description = description, Deadline = date, Priority = priority });
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute("dbo.Insert_Task @TaskID, @ListID, @Status, @Name, @Description, @Deadline, @Priority", tasks);
+                connection.Execute("dbo.Insert_Task @ListID, @Status, @Name, @Description, @Deadline, @Priority", tasks);
             }
         }
 
@@ -120,7 +121,7 @@ namespace Todozo
                 //Need to make a stored procedure and insert the values
                 connection.Execute(sql);
             }
-        }
+        } 
 
         public void DeleteTask(int taskID)
         {
@@ -134,6 +135,21 @@ namespace Todozo
 
                 //Need to make a stored procedure and insert the values
                 connection.Execute(sql);
+            }
+        }
+
+        public void UpdateTask(int taskID, string name, string description, DateTime date, int priority)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                // Two ways of doing it:
+                // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
+
+                List<Task> tasks = new List<Task>();
+                tasks.Add(new Task {TaskID = taskID, Name = name, Description = description, Deadline = date, Priority = priority });
+
+                //Need to make a stored procedure and insert the values
+                connection.Execute("dbo.Update_Task @TaskID, @Name, @Description, @Deadline, @Priority", tasks);
             }
         }
 

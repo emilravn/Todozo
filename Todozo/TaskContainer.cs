@@ -18,7 +18,7 @@ namespace Todozo
         //might delete this one 
         
         public Button viewTask = new Button();
-        
+        public Button edit = new Button();
 
         public TaskContainer(Task task)
         {
@@ -68,7 +68,7 @@ namespace Todozo
             deadline.Width = 200;
 
             //design code for the edit button
-            Button edit = new Button();
+            
             this.Controls.Add(edit);
             var editPoint = new Point(305, 10);
             edit.Location = editPoint;
@@ -84,11 +84,8 @@ namespace Todozo
             //eventhandler for the edit button
             void edit_Click(object sender, EventArgs e)
             {
-
-                CreateTaskPage popup = new CreateTaskPage();
-                DialogResult dialogresult = popup.ShowDialog();
-
-            }
+                TaskClicked = true; 
+            } 
 
             //code that creates a new eventhandler for the edit button
             edit.Click += new System.EventHandler(edit_Click);

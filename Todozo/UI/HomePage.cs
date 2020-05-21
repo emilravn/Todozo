@@ -146,6 +146,34 @@ namespace Todozo
 
             }
 
+        void editTask_Click(object sender, EventArgs e)
+        { 
+
+
+
+            foreach (TaskContainer i in contaionerTasks)
+            {
+                if (i.TaskClicked == true)
+                {
+                    taskButtonPressed = i;
+                }
+
+
+
+                
+            }
+
+
+
+
+            EditTaskPage popup = new EditTaskPage();
+            DialogResult dialogresult = popup.ShowDialog();
+            popup.Dispose();
+
+
+            flowLayoutPanelTask.Controls.Clear();
+            UpdateTasks(listButtonPressed); 
+        }
         void viewTask_Click_goBack(object sender, EventArgs e)
         {
             flowLayoutPanelTask.Controls.Clear();
@@ -229,6 +257,7 @@ namespace Todozo
             {
                 flowLayoutPanelTask.Controls.Add(i); 
                 i.viewTask.Click += new System.EventHandler(viewTask_Click);
+                i.edit.Click += new System.EventHandler(editTask_Click);
             }
 
 

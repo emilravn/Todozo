@@ -49,10 +49,40 @@ namespace Todozo
             }
         }
 
-        //code that retrieves the list in the database 
-        //reminder --> when the user is implemented, only retrieve lists that match the userID
+        public void UpdateList(int listID, string name)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                // Two ways of doing it:
+                // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
 
-        public List<List> GetLists(int UserID)
+
+                //Need to make a stored procedure and insert the values
+                connection.Execute($"UPDATE [List] SET Name = '{name}' WHERE ListID = '{listID}'");
+            }
+
+        }
+
+        public void DeleteList(int listID)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                // Two ways of doing it:
+                // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
+
+                string sql = $"DELETE [List] WHERE ListID = {listID}";
+
+
+                //Need to make a stored procedure and insert the values
+                connection.Execute(sql);
+            }
+
+        }
+
+            //code that retrieves the list in the database 
+            //reminder --> when the user is implemented, only retrieve lists that match the userID
+
+            public List<List> GetLists(int UserID)
         {
             // With these two lines, we can open a connection to SQL, get data out of it and close that connection. Beautiful code.
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
@@ -67,7 +97,9 @@ namespace Todozo
                 List<List> output = connection.Query<List>($"SELECT ListID, Name FROM List WHERE UserID = '{UserID}'").ToList();
                 return output;
             }
-        }
+        } 
+
+
 
         #endregion
 

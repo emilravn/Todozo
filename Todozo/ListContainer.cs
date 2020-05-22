@@ -10,10 +10,11 @@ namespace Todozo
         public bool ListClicked { get; set; }
         public int ListID { get; set; }
         public Button name = new Button();
-
+        public Button edit = new Button();
         public ListContainer(List list)
         {
             ListID = list.ListID;
+            Name = list.Name;
 
             //design code for the container itself
             BackColor = System.Drawing.Color.FromArgb(235, 236, 240);
@@ -32,7 +33,7 @@ namespace Todozo
             name.FlatStyle = 0;
 
             //design code for the edit button
-            Button edit = new Button();
+            
             this.Controls.Add(edit);
             var editPoint = new Point(250, 20);
             edit.Location = editPoint;
@@ -60,6 +61,8 @@ namespace Todozo
 
             //code that adds a new eventhandler to the name button
             name.Click += new System.EventHandler(edit_Click);
+            edit.Click += new System.EventHandler(edit_Click);
+
         }
 
     }

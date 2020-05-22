@@ -205,6 +205,27 @@ namespace Todozo
             UpdateTasks(listButtonPressed);
         }
 
+        void List_Click_editList(object sender, EventArgs e)
+        {
+            foreach (ListContainer i in containerLists)
+            {
+                if (i.ListClicked == true)
+                {
+
+                    listButtonPressed = i; 
+                    EditListPage popup = new EditListPage();
+                    DialogResult dialogresult = popup.ShowDialog();
+                    popup.Dispose();
+                    
+                    i.ListClicked = false; 
+                    
+                }
+            }
+
+            UpdateLists();
+
+        }
+
 
 
         #endregion
@@ -234,6 +255,7 @@ namespace Todozo
             {
 
                 i.name.Click += new System.EventHandler(List_Click);
+                i.edit.Click += new System.EventHandler(List_Click_editList);
 
             }
             //Potentionally instead make a function that checks if the container class is already there, then dont add it again 

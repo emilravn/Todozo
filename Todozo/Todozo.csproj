@@ -72,6 +72,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditListPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditListPage.Designer.cs">
+      <DependentUpon>EditListPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditTaskPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <Compile Include="ViewTask.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="EditListPage.resx">
+      <DependentUpon>EditListPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditTaskPage.resx">
       <DependentUpon>EditTaskPage.cs</DependentUpon>
     </EmbeddedResource>

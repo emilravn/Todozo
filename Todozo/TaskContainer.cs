@@ -117,6 +117,13 @@ namespace Todozo
             if (Status == true)
             {
                 BackColor = System.Drawing.Color.FromArgb(62, 191, 92);
+
+                edit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(62, 191, 92);
+                edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(62, 191, 92);
+                edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(62, 191, 92);
+
+                viewTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(62, 191, 92);
+                viewTask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(62, 191, 92);
             }
 
         }

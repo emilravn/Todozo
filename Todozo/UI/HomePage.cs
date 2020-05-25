@@ -99,25 +99,37 @@ namespace Todozo
         //create task button 
         private void CreateTaskButton_Click(object sender, EventArgs e)
         {
-            CreateTaskPage popup = new CreateTaskPage();
-            DialogResult dialogresult = popup.ShowDialog();
-            popup.Dispose();
+            if (listButtonPressed == null)
+            {
+                MessageBox.Show("You need to pick a list first");
+            }
+            else
+            {
 
-            UpdateTasks(listButtonPressed);
-        } 
+                CreateTaskPage popup = new CreateTaskPage();
+                DialogResult dialogresult = popup.ShowDialog();
+                popup.Dispose();
+
+                UpdateTasks(listButtonPressed);
+
+            }
+
+        }
 
         //eventhandler that executes if a list i clicked on  
         //maybe make eventhandler public and move to homePage like the rest, and then delete listClicked bool 
         void List_Click(object sender, EventArgs e)
         {
             foreach (ListContainer i in containerLists)
-            {
+            { 
+                i.name.BackColor = System.Drawing.Color.FromArgb(235, 236, 240);
                 if (i.ListClicked == true)
                 {
                     UpdateTasks(i);
                     listButtonPressed = i;
-                    i.ListClicked = false;
-                }
+                    i.ListClicked = false; 
+                    listButtonPressed.name.BackColor = System.Drawing.Color.LightSlateGray;
+                } 
             }
         } 
 
@@ -200,8 +212,12 @@ namespace Todozo
         {
             DataAccess db = new DataAccess();
 
-            flowLayoutPanelTask.Controls.Clear();
-            db.DeleteTask(taskButtonPressed.TaskID);
+            if (MessageBox.Show("Are you sure you want to delete the task?", "message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                flowLayoutPanelTask.Controls.Clear();
+                db.DeleteTask(taskButtonPressed.TaskID);
+            }
+
             UpdateTasks(listButtonPressed);
         }
 

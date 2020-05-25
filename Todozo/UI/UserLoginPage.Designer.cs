@@ -87,6 +87,7 @@
             this.inputTextLoginPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginPassword.ForeColor = System.Drawing.Color.Black;
             this.inputTextLoginPassword.Location = new System.Drawing.Point(422, 252);
+            this.inputTextLoginPassword.MaxLength = 50;
             this.inputTextLoginPassword.Name = "inputTextLoginPassword";
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginPassword.TabIndex = 10;
@@ -101,6 +102,7 @@
             this.inputTextLoginName.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginName.ForeColor = System.Drawing.Color.Black;
             this.inputTextLoginName.Location = new System.Drawing.Point(422, 208);
+            this.inputTextLoginName.MaxLength = 50;
             this.inputTextLoginName.Name = "inputTextLoginName";
             this.inputTextLoginName.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginName.TabIndex = 9;

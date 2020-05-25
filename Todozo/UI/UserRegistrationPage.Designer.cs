@@ -55,6 +55,7 @@
             this.inputTextLoginEmail.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginEmail.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginEmail.Location = new System.Drawing.Point(419, 189);
+            this.inputTextLoginEmail.MaxLength = 50;
             this.inputTextLoginEmail.Name = "inputTextLoginEmail";
             this.inputTextLoginEmail.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginEmail.TabIndex = 0;
@@ -80,6 +81,7 @@
             this.inputTextLoginPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginPassword.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginPassword.Location = new System.Drawing.Point(419, 233);
+            this.inputTextLoginPassword.MaxLength = 50;
             this.inputTextLoginPassword.Name = "inputTextLoginPassword";
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginPassword.TabIndex = 1;
@@ -93,6 +95,7 @@
             this.inputTextLoginRepeatPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginRepeatPassword.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginRepeatPassword.Location = new System.Drawing.Point(419, 278);
+            this.inputTextLoginRepeatPassword.MaxLength = 50;
             this.inputTextLoginRepeatPassword.Name = "inputTextLoginRepeatPassword";
             this.inputTextLoginRepeatPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginRepeatPassword.TabIndex = 2;

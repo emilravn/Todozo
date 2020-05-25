@@ -15,7 +15,7 @@ namespace Todozo
 {
     public class DataAccess
     {
-        // All that there is to talk to our SQLServer. It is done like so.
+        // All that there is to talk to our SQLServer. It is done like so
         public List<Task> GetListOfTasks(int listID)
         {
             // With these two lines, we can open a connection to SQL, get data out of it and close that connection. Beautiful code.

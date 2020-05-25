@@ -17,7 +17,7 @@ namespace Todozo.UI
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            var confirmDelete = MessageBox.Show(@"Are you sure you want to delete this user along with all of data?",
+            var confirmDelete = MessageBox.Show(@"Are you sure you want to delete this user along with all of its data?",
                 @"Confirm",
                 MessageBoxButtons.YesNo);
             if (confirmDelete == DialogResult.Yes)

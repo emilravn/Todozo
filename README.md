@@ -36,6 +36,6 @@ The system:
 
 ### How to run:
 
-- Import the SQLDB in SMSS located in ```TodozoNew/SQL/LokalTodozo.bacpac``` to your localhost server.
+- Import the SQLDB in SMSS located in ```Todozo/SQL/LokalTodozo.bacpac``` to your localhost server.
 - Ensure you have SQL Server installed.
 - Open up the application. You will be prompted to download a missing package ```Dapper``` which is used by the system.

@@ -40,10 +40,10 @@
             this.CreateListButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.CreateListButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(191)))), ((int)(((byte)(92)))));
             this.CreateListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateListButton.Location = new System.Drawing.Point(357, 197);
-            this.CreateListButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CreateListButton.Location = new System.Drawing.Point(268, 160);
+            this.CreateListButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CreateListButton.Name = "CreateListButton";
-            this.CreateListButton.Size = new System.Drawing.Size(129, 76);
+            this.CreateListButton.Size = new System.Drawing.Size(97, 62);
             this.CreateListButton.TabIndex = 17;
             this.CreateListButton.Text = "Create List";
             this.CreateListButton.UseVisualStyleBackColor = false;
@@ -55,10 +55,10 @@
             this.GoBackButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.GoBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
             this.GoBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GoBackButton.Location = new System.Drawing.Point(159, 197);
-            this.GoBackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GoBackButton.Location = new System.Drawing.Point(119, 160);
+            this.GoBackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.GoBackButton.Name = "GoBackButton";
-            this.GoBackButton.Size = new System.Drawing.Size(129, 76);
+            this.GoBackButton.Size = new System.Drawing.Size(97, 62);
             this.GoBackButton.TabIndex = 16;
             this.GoBackButton.Text = "Go back";
             this.GoBackButton.UseVisualStyleBackColor = false;
@@ -66,10 +66,11 @@
             // ListNameTextBox
             // 
             this.ListNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
-            this.ListNameTextBox.Location = new System.Drawing.Point(159, 122);
-            this.ListNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListNameTextBox.Location = new System.Drawing.Point(119, 99);
+            this.ListNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ListNameTextBox.MaxLength = 25;
             this.ListNameTextBox.Name = "ListNameTextBox";
-            this.ListNameTextBox.Size = new System.Drawing.Size(329, 22);
+            this.ListNameTextBox.Size = new System.Drawing.Size(248, 20);
             this.ListNameTextBox.TabIndex = 12;
             // 
             // CreateListLabel
@@ -77,25 +78,26 @@
             this.CreateListLabel.AutoSize = true;
             this.CreateListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
             this.CreateListLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.CreateListLabel.Location = new System.Drawing.Point(205, 34);
+            this.CreateListLabel.Location = new System.Drawing.Point(154, 28);
+            this.CreateListLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CreateListLabel.Name = "CreateListLabel";
-            this.CreateListLabel.Size = new System.Drawing.Size(234, 52);
+            this.CreateListLabel.Size = new System.Drawing.Size(185, 39);
             this.CreateListLabel.TabIndex = 11;
             this.CreateListLabel.Text = "Create List";
             // 
             // CreateListPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(688, 321);
+            this.ClientSize = new System.Drawing.Size(518, 267);
             this.Controls.Add(this.CreateListButton);
             this.Controls.Add(this.GoBackButton);
             this.Controls.Add(this.ListNameTextBox);
             this.Controls.Add(this.CreateListLabel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(706, 368);
-            this.MinimumSize = new System.Drawing.Size(706, 368);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(534, 306);
+            this.MinimumSize = new System.Drawing.Size(534, 306);
             this.Name = "CreateListPage";
             this.Text = "CreateListPage";
             this.Load += new System.EventHandler(this.CreateListPage_Load);

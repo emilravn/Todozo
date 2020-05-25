@@ -9,7 +9,7 @@ namespace Todozo
 
         public bool ListClicked { get; set; }
         public int ListID { get; set; }
-        public Button name = new Button();
+        public Button name = new Button(); 
         public Button edit = new Button();
         public ListContainer(List list)
         {
@@ -28,7 +28,8 @@ namespace Todozo
             name.Text = list.Name;
             name.TextAlign = ContentAlignment.MiddleLeft;
             name.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            name.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(235, 236, 240);
+            name.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(235, 236, 240); 
+            
             name.FlatAppearance.BorderSize = 0;
             name.FlatStyle = 0;
 
@@ -47,16 +48,17 @@ namespace Todozo
             edit.Width = 45;
 
             //Dock
-           //Anchor = AnchorStyles.Left;
+            //Anchor = AnchorStyles.Left;
             //Anchor = AnchorStyles.Right;
             //Dock = DockStyle.Bottom;
 
-
+          //  name.BackColor = System.Drawing.Color.FromArgb(235, 236, 240); 
 
             //event handler that executes when the name button is clicked
             void edit_Click(object sender, EventArgs e)
             {
-                ListClicked = true;
+                ListClicked = true; 
+               // name.BackColor = System.Drawing.Color.Aqua;
             }
 
             //code that adds a new eventhandler to the name button

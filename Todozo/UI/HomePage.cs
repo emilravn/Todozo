@@ -110,15 +110,23 @@ namespace Todozo
         //maybe make eventhandler public and move to homePage like the rest, and then delete listClicked bool 
         void List_Click(object sender, EventArgs e)
         {
+            
             foreach (ListContainer i in containerLists)
             {
+                i.name.BackColor = System.Drawing.Color.FromArgb(235, 236, 240);
                 if (i.ListClicked == true)
                 {
                     UpdateTasks(i);
                     listButtonPressed = i;
+                   // i.name.BackColor = Color.Aqua;
                     i.ListClicked = false;
+                    listButtonPressed.name.BackColor = System.Drawing.Color.LightSlateGray; 
                 }
+                
+
             }
+            //UpdateLists(); 
+           // listButtonPressed.name.BackColor = Color.Aqua;
         } 
 
             //eventhandler that executes when the viewTask button is pressed 
@@ -200,9 +208,16 @@ namespace Todozo
         {
             DataAccess db = new DataAccess();
 
-            flowLayoutPanelTask.Controls.Clear();
-            db.DeleteTask(taskButtonPressed.TaskID);
-            UpdateTasks(listButtonPressed);
+            
+            
+            
+
+            if (MessageBox.Show("Are you sure you want to delete the task?", "message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                flowLayoutPanelTask.Controls.Clear();
+                db.DeleteTask(taskButtonPressed.TaskID);
+            }
+                UpdateTasks(listButtonPressed);
         }
 
         void List_Click_editList(object sender, EventArgs e)

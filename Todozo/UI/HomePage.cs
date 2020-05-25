@@ -284,9 +284,10 @@ namespace Todozo
             Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ProfileButton_Click(object sender, EventArgs e)
         {
-
+            ProfilePage profileButton = new ProfilePage();
+            profileButton.Show();
         }
     }
 }

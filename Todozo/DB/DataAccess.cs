@@ -203,22 +203,6 @@ namespace Todozo
             }
         }
 
-        //public void CheckLogin(string name, string password)
-        //{
-        //    using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
-        //    {
-        //        //List<User> output = connection
-        //        //    .Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'").ToList();
-        //        //return output;
-
-        //        var output = connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}' AND Password = '{password}'");
-        //        if (output.ToList().ToString() == "1")
-        //        {
-        //            MessageBox.Show("You have logged in!");
-        //        }
-        //    }
-        //} 
-
         public List<User> CheckLogin(string name)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
@@ -226,6 +210,11 @@ namespace Todozo
                 List<User> output = connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}'").ToList();
                 return output;
             }
+        }
+
+        public void DeleteUser(string name)
+        {
+            // query where user name constraint on that user and all of its data.
         }
 
         #endregion

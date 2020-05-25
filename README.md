@@ -20,7 +20,7 @@ The system:
 
 ✔ (7) must be able to allow users to delete lists
 
-✔ (8) must be able to keep track of the status and information of each users, task and list
+✔ (8) must be able to keep track of the status and information of each user, task and list
 
 ✔ (9) should be able to allow users to prioritize and date their tasks
 
@@ -28,7 +28,7 @@ The system:
 
 ❌ (11) should be able to allow users to freely move created tasks into different lists at all times
 
-❌ (12) should be able to support its users to edit information associated with their profile
+❌ (12) should be able to support its users to edit information associated with their login
 
 ❌ (13) could support search functionality with a keyword and find all matching tasks with the used keyword in each list
 
@@ -36,6 +36,6 @@ The system:
 
 ### How to run:
 
-- Import the SQLDB in SMSS located in ```TodozoNew/SQL/LokalTodozo.bacpac``` to your localhost server.
+- Import the SQLDB in SMSS located in ```Todozo/SQL/LokalTodozo.bacpac``` to your localhost server.
 - Ensure you have SQL Server installed.
 - Open up the application. You will be prompted to download a missing package ```Dapper``` which is used by the system.

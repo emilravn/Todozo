@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Todozo.UI; // Was added when I did Application.Run (new UserRegistrationPage());
 
 namespace Todozo
 {
@@ -18,11 +19,21 @@ namespace Todozo
             if (Environment.OSVersion.Version.Major == 6)
                 SetProcessDPIAware();
 
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new HomePage());
-            Application.Run(new HomePage());
+            var main = new UserLoginPage();
+            main.FormClosed += new FormClosedEventHandler(FormClosed);
+            main.Show();
+            Application.Run();
+        }
+
+
+        // Close the application fully when no windows are up.
+        static void FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ((Form)sender).FormClosed -= FormClosed;
+            if (Application.OpenForms.Count == 0) Application.ExitThread();
+            else Application.OpenForms[0].FormClosed += FormClosed;
         }
 
         //Code to make the text less blurry

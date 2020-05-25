@@ -13,20 +13,26 @@ namespace Todozo
         public string Description { get; set; }
         public DateTime Deadline { get; set; }
         public int Priority { get; set; }
-        public bool TaskClicked { get; set; }
-        public Button viewTask = new Button();
+        public bool TaskClicked { get; set; } 
 
+        //might delete this one 
+        
+        public Button viewTask = new Button();
+        public Button edit = new Button();
 
         public TaskContainer(Task task)
         {
             Name = task.Name;
+            TaskID = task.TaskID;
             Description = task.Description;
             Deadline = task.Deadline;
             Priority = task.Priority;
+            Status = task.Status;
             
             
 
             BackColor = System.Drawing.Color.FromArgb(235, 236, 240);
+            
             Width = 383;
             Height = 226; 
 
@@ -62,7 +68,7 @@ namespace Todozo
             deadline.Width = 200;
 
             //design code for the edit button
-            Button edit = new Button();
+            
             this.Controls.Add(edit);
             var editPoint = new Point(305, 10);
             edit.Location = editPoint;
@@ -78,11 +84,8 @@ namespace Todozo
             //eventhandler for the edit button
             void edit_Click(object sender, EventArgs e)
             {
-
-                CreateTaskPage popup = new CreateTaskPage();
-                DialogResult dialogresult = popup.ShowDialog();
-
-            }
+                TaskClicked = true; 
+            } 
 
             //code that creates a new eventhandler for the edit button
             edit.Click += new System.EventHandler(edit_Click);
@@ -111,7 +114,14 @@ namespace Todozo
             viewTask.Height = 45;
             viewTask.Width = 45;
 
+            if (Status == true)
+            {
+                BackColor = System.Drawing.Color.FromArgb(62, 191, 92);
+            }
+
         }
+
+
 
 
     }

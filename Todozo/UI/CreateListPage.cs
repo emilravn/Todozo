@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Todozo.UI;
 
 namespace Todozo
 {
@@ -21,7 +22,7 @@ namespace Todozo
         {
             DataAccess db = new DataAccess();
             
-            db.InsertList(ListNameTextBox.Text);
+            db.InsertList(ListNameTextBox.Text, UserLoginPage.activeUser.UserID);
 
             ListNameTextBox.Text = "";
 

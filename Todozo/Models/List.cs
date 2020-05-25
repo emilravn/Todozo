@@ -11,6 +11,8 @@ namespace Todozo
         public int ListID { get; set; }
         public string Name { get; set; } 
 
+        public int UserID { get; set; }
+
 
 
 

@@ -40,7 +40,7 @@ namespace Todozo
             edit.Location = editPoint;
             edit.Image = Properties.Resources.icons8_edit_45;
             edit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(235, 236, 240);
-            edit.FlatAppearance.BorderSize = 0;
+            edit.FlatAppearance.BorderSize = 0; 
             edit.FlatStyle = 0;
             edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(235, 236, 240);
             edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 236, 240);

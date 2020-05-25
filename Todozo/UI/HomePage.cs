@@ -99,11 +99,20 @@ namespace Todozo
         //create task button 
         private void CreateTaskButton_Click(object sender, EventArgs e)
         {
+            if (listButtonPressed == null)
+            {
+                MessageBox.Show("You need to pick a list first");
+            } else
+            {
+
             CreateTaskPage popup = new CreateTaskPage();
             DialogResult dialogresult = popup.ShowDialog();
             popup.Dispose();
 
             UpdateTasks(listButtonPressed);
+
+            }
+
         } 
 
         //eventhandler that executes if a list i clicked on  

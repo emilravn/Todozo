@@ -113,7 +113,7 @@ namespace Todozo
             this.Controls.Add(moveTask);
             moveTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             moveTask.Location = new Point(173, 400);
-            moveTask.Name = "GoBackButton";
+            moveTask.Name = "MoveTaskButton";
             moveTask.Size = new System.Drawing.Size(129, 76);
             moveTask.Text = "Move task";
 
@@ -122,17 +122,19 @@ namespace Todozo
             this.Controls.Add(completeTask);
             completeTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             completeTask.Location = new Point(423, 500);
-            completeTask.Name = "GoBackButton";
+            completeTask.Name = "CompleteTaskButton";
             completeTask.Size = new System.Drawing.Size(129, 76);
-            completeTask.Text = "Complete task";
+            completeTask.Text = "Complete task"; 
+            completeTask.BackColor = System.Drawing.Color.FromArgb(62, 191, 92);
 
             //design code for deleteTaskButton 
             this.Controls.Add(deleteTask);
             deleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             deleteTask.Location = new Point(423, 400);
-            deleteTask.Name = "GoBackButton";
+            deleteTask.Name = "DeleteTaskButton";
             deleteTask.Size = new System.Drawing.Size(129, 76);
             deleteTask.Text = "Delete task";
+            deleteTask.BackColor = System.Drawing.Color.FromArgb(221, 87, 87);
         }
 
   

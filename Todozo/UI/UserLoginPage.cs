@@ -1,10 +1,14 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Todozo.Models;
 
 namespace Todozo.UI
 {
+    /// <summary>
+    /// This class is responsible for handling user login. A variable activeUser is declared to check which user is logged into the system.
+    /// From here, upon login we convert the password into hashed password stored in the DB made upon registration, check AddUser() method in DataAccess.CS.
+    /// Finally, a few design stuff is done here.
+    /// </summary>
     public partial class UserLoginPage : Form
     {
         public static User activeUser;
@@ -15,64 +19,62 @@ namespace Todozo.UI
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            
-            UserRegistrationPage CreateAccount = new UserRegistrationPage();
-            CreateAccount.Show(); 
+            var CreateAccount = new UserRegistrationPage();
+            CreateAccount.Show();
             Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            if (inputTextLoginName.Text == "Name" && inputTextLoginPassword.Text == "Password")
+            switch (inputTextLoginName.Text)
             {
-                MessageBox.Show("Please type your account name and password.");
-            }
-
-            else if (inputTextLoginName.Text == "Name")
-            {
-                MessageBox.Show("Please type in your account name.");
-            }
-            else if (inputTextLoginPassword.Text == "Password")
-            {
-                MessageBox.Show("Please type in your account password.");
-            }
-            else
-            {
-                DataAccess db = new DataAccess();
-                UserRegistrationPage.CheckIfUserExist(inputTextLoginName);
-                if (!UserRegistrationPage.CheckIfUserExist(inputTextLoginName))
-                {
-                    MessageBox.Show("account does not exist");
-                }
-
-                foreach (var user in db.CheckLogin(inputTextLoginName.Text))
-                {
-                    string dbPassword = Convert.ToString(user.Password);
-                    string dbUserGuid = Convert.ToString(user.UserGuid);
-
-                    // Now we hash the UserGuid from the database with the password we wan't to check
-                    // In the same way as when we saved it to the database in the first place. (see AddUser() function)
-                    string hashedPassword = DataAccess.HashSHA1(inputTextLoginPassword.Text + dbUserGuid);
-
-                    if (dbPassword == hashedPassword)
+                case @"Name" when inputTextLoginPassword.Text == @"Password":
+                    MessageBox.Show(@"Please type your account name and password.");
+                    break;
+                case @"Name":
+                    MessageBox.Show(@"Please type in your account name.");
+                    break;
+                default:
                     {
-                        activeUser = user;
-                        HomePage homePage = new HomePage();
-                        homePage.Show(); 
-                        Close();
-                    } 
-                    else
-                    {
-                        MessageBox.Show("Password does not match account name");
+                        if (inputTextLoginPassword.Text == @"Password")
+                        {
+                            MessageBox.Show(@"Please type in your account password.");
+                        }
+                        else
+                        {
+                            var db = new DataAccess();
+                            UserRegistrationPage.CheckIfUserExist(inputTextLoginName);
+                            if (!UserRegistrationPage.CheckIfUserExist(inputTextLoginName))
+                            {
+                                MessageBox.Show(@"Account does not exist.");
+                            }
+                            foreach (var user in db.CheckLogin(inputTextLoginName.Text))
+                            {
+                                var dbPassword = Convert.ToString(user.Password);
+                                var dbUserGuid = Convert.ToString(user.UserGuid);
+                                var hashedPassword = DataAccess.HashSHA1(inputTextLoginPassword.Text + dbUserGuid);
+
+                                if (dbPassword == hashedPassword)
+                                {
+                                    activeUser = user;
+                                    var homePage = new HomePage();
+                                    homePage.Show();
+                                    Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show(@"Password does not match account name");
+                                }
+                            }
+                        }
+                        break;
                     }
-                }
             }
         }
 
         private void inputTextLoginName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (inputTextLoginName.Text == "Name")
+            if (inputTextLoginName.Text == @"Name")
             {
                 inputTextLoginName.Text = "";
             }
@@ -80,32 +82,25 @@ namespace Todozo.UI
 
         private void inputTextLoginPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (inputTextLoginPassword.Text == "Password")
-            {
-
-                inputTextLoginPassword.Text = "";
-                // The password character is an asterisk.
-                inputTextLoginPassword.PasswordChar = '*';
-                // The control will allow no more than 30 characters.
-                inputTextLoginPassword.MaxLength = 30;
-            }
+            if (inputTextLoginPassword.Text != @"Password") return;
+            inputTextLoginPassword.Text = "";
+            inputTextLoginPassword.PasswordChar = '*';
+            inputTextLoginPassword.MaxLength = 30;
         }
 
         private void inputTextLoginName_Leave(object sender, EventArgs e)
         {
             if (inputTextLoginName.Text == "")
             {
-                inputTextLoginName.Text = "Name";
+                inputTextLoginName.Text = @"Name";
             }
         }
 
         private void inputTextLoginPassword_Leave(object sender, EventArgs e)
         {
-            if (inputTextLoginPassword.Text == "")
-            {
-                inputTextLoginPassword.Text = "Password";
-                inputTextLoginPassword.PasswordChar = '\0';
-            }
+            if (inputTextLoginPassword.Text != "") return;
+            inputTextLoginPassword.Text = @"Password";
+            inputTextLoginPassword.PasswordChar = '\0';
         }
     }
 }

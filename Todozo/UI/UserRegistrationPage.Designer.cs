@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.inputTextLoginEmail = new System.Windows.Forms.TextBox();
+            this.inputTextLoginName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.inputTextLoginPassword = new System.Windows.Forms.TextBox();
             this.inputTextLoginRepeatPassword = new System.Windows.Forms.TextBox();
@@ -48,19 +48,20 @@
             this.label1.Text = "Create Account";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // inputTextLoginEmail
+            // inputTextLoginName
             // 
-            this.inputTextLoginEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.inputTextLoginEmail.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.inputTextLoginEmail.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputTextLoginEmail.ForeColor = System.Drawing.Color.Silver;
-            this.inputTextLoginEmail.Location = new System.Drawing.Point(419, 189);
-            this.inputTextLoginEmail.Name = "inputTextLoginEmail";
-            this.inputTextLoginEmail.Size = new System.Drawing.Size(292, 29);
-            this.inputTextLoginEmail.TabIndex = 0;
-            this.inputTextLoginEmail.Text = "Name";
-            this.inputTextLoginEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginEmail_KeyPressed);
-            this.inputTextLoginEmail.Leave += new System.EventHandler(this.inputTextLoginEmail_Leave);
+            this.inputTextLoginName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.inputTextLoginName.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.inputTextLoginName.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputTextLoginName.ForeColor = System.Drawing.Color.Silver;
+            this.inputTextLoginName.Location = new System.Drawing.Point(419, 189);
+            this.inputTextLoginName.MaxLength = 50;
+            this.inputTextLoginName.Name = "inputTextLoginName";
+            this.inputTextLoginName.Size = new System.Drawing.Size(292, 29);
+            this.inputTextLoginName.TabIndex = 0;
+            this.inputTextLoginName.Text = "Name";
+            this.inputTextLoginName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginEmail_KeyPressed);
+            this.inputTextLoginName.Leave += new System.EventHandler(this.inputTextLoginEmail_Leave);
             // 
             // btnCancel
             // 
@@ -80,6 +81,7 @@
             this.inputTextLoginPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginPassword.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginPassword.Location = new System.Drawing.Point(419, 233);
+            this.inputTextLoginPassword.MaxLength = 30;
             this.inputTextLoginPassword.Name = "inputTextLoginPassword";
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginPassword.TabIndex = 1;
@@ -93,6 +95,7 @@
             this.inputTextLoginRepeatPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginRepeatPassword.ForeColor = System.Drawing.Color.Silver;
             this.inputTextLoginRepeatPassword.Location = new System.Drawing.Point(419, 278);
+            this.inputTextLoginRepeatPassword.MaxLength = 30;
             this.inputTextLoginRepeatPassword.Name = "inputTextLoginRepeatPassword";
             this.inputTextLoginRepeatPassword.Size = new System.Drawing.Size(292, 29);
             this.inputTextLoginRepeatPassword.TabIndex = 2;
@@ -122,7 +125,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.inputTextLoginRepeatPassword);
             this.Controls.Add(this.inputTextLoginPassword);
-            this.Controls.Add(this.inputTextLoginEmail);
+            this.Controls.Add(this.inputTextLoginName);
             this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(1152, 735);
             this.MinimumSize = new System.Drawing.Size(1152, 735);
@@ -137,7 +140,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inputTextLoginEmail;
+        private System.Windows.Forms.TextBox inputTextLoginName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox inputTextLoginPassword;
         private System.Windows.Forms.TextBox inputTextLoginRepeatPassword;

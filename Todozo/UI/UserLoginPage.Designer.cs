@@ -85,6 +85,7 @@
             // inputTextLoginPassword
             // 
             this.inputTextLoginPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.inputTextLoginPassword.Cursor = System.Windows.Forms.Cursors.Default;
             this.inputTextLoginPassword.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextLoginPassword.ForeColor = System.Drawing.Color.Black;
             this.inputTextLoginPassword.Location = new System.Drawing.Point(422, 252);

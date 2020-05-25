@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserRegistrationPage));
             this.label1 = new System.Windows.Forms.Label();
             this.inputTextLoginName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(419, 324);
+            this.btnCancel.Location = new System.Drawing.Point(419, 329);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(142, 37);
             this.btnCancel.TabIndex = 4;
@@ -107,7 +108,7 @@
             // 
             this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(569, 324);
+            this.btnSubmit.Location = new System.Drawing.Point(569, 329);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(142, 37);
             this.btnSubmit.TabIndex = 3;
@@ -127,11 +128,13 @@
             this.Controls.Add(this.inputTextLoginPassword);
             this.Controls.Add(this.inputTextLoginName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1152, 735);
             this.MinimumSize = new System.Drawing.Size(1152, 735);
             this.Name = "UserRegistrationPage";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "User Registration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Todozo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -50,7 +50,7 @@
             this.TopPanel.Controls.Add(this.ProfileButton);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
-            this.TopPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TopPanel.Margin = new System.Windows.Forms.Padding(2);
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(1136, 81);
             this.TopPanel.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.LogoutButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.LogoutButton.Location = new System.Drawing.Point(0, 46);
-            this.LogoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.Size = new System.Drawing.Size(89, 31);
             this.LogoutButton.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.ProfileButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ProfileButton.Location = new System.Drawing.Point(11, 11);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(2);
             this.ProfileButton.Name = "ProfileButton";
             this.ProfileButton.Size = new System.Drawing.Size(66, 31);
             this.ProfileButton.TabIndex = 2;
@@ -109,7 +109,7 @@
             this.BottomPanel.Controls.Add(this.CreateListButton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomPanel.Location = new System.Drawing.Point(0, 620);
-            this.BottomPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BottomPanel.Margin = new System.Windows.Forms.Padding(2);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(1136, 76);
             this.BottomPanel.TabIndex = 1;
@@ -130,7 +130,7 @@
             this.CreateTaskButton.Image = ((System.Drawing.Image)(resources.GetObject("CreateTaskButton.Image")));
             this.CreateTaskButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.CreateTaskButton.Location = new System.Drawing.Point(655, 0);
-            this.CreateTaskButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CreateTaskButton.Margin = new System.Windows.Forms.Padding(2);
             this.CreateTaskButton.Name = "CreateTaskButton";
             this.CreateTaskButton.Size = new System.Drawing.Size(82, 67);
             this.CreateTaskButton.TabIndex = 2;
@@ -152,7 +152,7 @@
             this.CreateListButton.Image = ((System.Drawing.Image)(resources.GetObject("CreateListButton.Image")));
             this.CreateListButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.CreateListButton.Location = new System.Drawing.Point(82, 0);
-            this.CreateListButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CreateListButton.Margin = new System.Windows.Forms.Padding(2);
             this.CreateListButton.Name = "CreateListButton";
             this.CreateListButton.Size = new System.Drawing.Size(81, 67);
             this.CreateListButton.TabIndex = 1;
@@ -168,7 +168,7 @@
             this.flowLayoutPanelList.AutoScroll = true;
             this.flowLayoutPanelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
             this.flowLayoutPanelList.Location = new System.Drawing.Point(0, 81);
-            this.flowLayoutPanelList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanelList.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelList.Name = "flowLayoutPanelList";
             this.flowLayoutPanelList.Size = new System.Drawing.Size(247, 527);
             this.flowLayoutPanelList.TabIndex = 2;
@@ -182,7 +182,7 @@
             this.flowLayoutPanelTask.AutoScroll = true;
             this.flowLayoutPanelTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
             this.flowLayoutPanelTask.Location = new System.Drawing.Point(268, 81);
-            this.flowLayoutPanelTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanelTask.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelTask.Name = "flowLayoutPanelTask";
             this.flowLayoutPanelTask.Padding = new System.Windows.Forms.Padding(150, 0, 0, 0);
             this.flowLayoutPanelTask.Size = new System.Drawing.Size(858, 527);
@@ -200,11 +200,12 @@
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1152, 657);
             this.Name = "HomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HomePage";
+            this.Text = "Todozo";
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();

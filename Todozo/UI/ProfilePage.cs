@@ -24,7 +24,9 @@ namespace Todozo.UI
             {
                 // Deletes the user and all of its content.
                 DataAccess db = new DataAccess();
-                db.DeleteUser(UserLoginPage.activeUser.Name);
+                db.DeleteUser(UserLoginPage.activeUser.UserID);
+                Application.Restart();
+
             }
             else
             {

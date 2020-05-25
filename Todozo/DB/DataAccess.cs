@@ -56,9 +56,12 @@ namespace Todozo
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
 
+                List<List> lists = new List<List>();
+                lists.Add(new List { ListID = listID, Name = name});
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute($"UPDATE [List] SET Name = '{name}' WHERE ListID = '{listID}'");
+                connection.Execute("dbo.Update_List @ListID, @Name", lists);
+
             }
 
         }
@@ -69,20 +72,21 @@ namespace Todozo
             {
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
-
-                string sql = $"DELETE [List] WHERE ListID = {listID}";
-
+                List<List> lists = new List<List>();
+                lists.Add(new List { ListID = listID});
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute(sql);
+                connection.Execute("dbo.Delete_List @ListID", lists);
+
+
             }
 
         }
 
-            //code that retrieves the list in the database 
-            //reminder --> when the user is implemented, only retrieve lists that match the userID
+        //code that retrieves the list in the database 
+        //reminder --> when the user is implemented, only retrieve lists that match the userID
 
-            public List<List> GetLists(int UserID)
+        public List<List> GetLists(int userID)
         {
             // With these two lines, we can open a connection to SQL, get data out of it and close that connection. Beautiful code.
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
@@ -92,12 +96,13 @@ namespace Todozo
 
                 // In the braces with the string, put the stored procedure!
 
+
                 //make a stored procedure for selecting data from task 
                 //List<List> output = connection.Query<List>($"SELECT ListID, Name FROM List INNER JOIN [User] ON List.{UserID} = [User].UserID").ToList(); 
-                List<List> output = connection.Query<List>($"SELECT ListID, Name FROM List WHERE UserID = '{UserID}'").ToList();
+                List<List> output = connection.Query<List>($"dbo.Get_Lists @UserID", new { UserID = userID } ).ToList();
                 return output;
             }
-        } 
+        }
 
 
 
@@ -106,7 +111,7 @@ namespace Todozo
         #region Task 
 
         //code that inserts tasks into the database
-        public void InsertTask( int listID, string name, string description, DateTime date, int priority, bool status)
+        public void InsertTask(int listID, string name, string description, DateTime date, int priority, bool status)
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
@@ -135,7 +140,7 @@ namespace Todozo
                 // In the braces with the string, put the stored procedure!
 
                 //make a stored procedure for selecting data from task 
-                List<Task> output = connection.Query<Task>($"select TaskID, Name, Status, Priority, Description, Deadline from Task where ListID = '{ listID }'").ToList();
+                List<Task> output = connection.Query<Task>($"dbo.Get_Tasks @ListID", new { ListID = listID }).ToList();
                 return output;
             }
         }
@@ -148,13 +153,16 @@ namespace Todozo
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
 
-                string sql = $"UPDATE [Task] SET Status = 1 WHERE TaskID = {taskID}";
+                List<Task> tasks = new List<Task>();
+
+                tasks.Add(new Task { TaskID = taskID });
+
+                connection.Execute("dbo.Update_Task_Status @TaskID", tasks);
 
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute(sql);
             }
-        } 
+        }
 
         public void DeleteTask(int taskID)
         {
@@ -163,11 +171,11 @@ namespace Todozo
                 // Two ways of doing it:
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
 
-                string sql = $"DELETE [Task] WHERE TaskID = {taskID}";
-
+                List<Task> tasks = new List<Task>();
+                tasks.Add(new Task { TaskID = taskID });
 
                 //Need to make a stored procedure and insert the values
-                connection.Execute(sql);
+                connection.Execute("dbo.Delete_Task @TaskID", tasks);
             }
         }
 
@@ -179,7 +187,7 @@ namespace Todozo
                 // var newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber};
 
                 List<Task> tasks = new List<Task>();
-                tasks.Add(new Task {TaskID = taskID, Name = name, Description = description, Deadline = date, Priority = priority });
+                tasks.Add(new Task { TaskID = taskID, Name = name, Description = description, Deadline = date, Priority = priority });
 
                 //Need to make a stored procedure and insert the values
                 connection.Execute("dbo.Update_Task @TaskID, @Name, @Description, @Deadline, @Priority", tasks);
@@ -221,7 +229,7 @@ namespace Todozo
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
                 List<User> users = new List<User>();
-                users.Add(new User { Name = name, Password = hashedPassword, UserGuid = userGuid});
+                users.Add(new User { Name = name, Password = hashedPassword, UserGuid = userGuid });
                 connection.Execute($"dbo.AddUser @UserID, @Name, @Password, @UserGuid", users);
             }
         }
@@ -230,7 +238,7 @@ namespace Todozo
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
-                List<User> output = connection.Query<User>($"SELECT Name, Password FROM [User]").ToList();
+                List<User> output = connection.Query<User>($"dbo.Get_Users").ToList();
                 return output;
             }
         }
@@ -239,14 +247,23 @@ namespace Todozo
         {
             using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
             {
-                List<User> output = connection.Query<User>($"SELECT * FROM [User] WHERE Name = '{name}'").ToList();
+                List<User> output = connection.Query<User>($"dbo.Check_User_Login @Name", new { Name = name }).ToList();
                 return output;
             }
         }
 
-        public void DeleteUser(string name)
+        public void DeleteUser(int userID)
         {
-            // query where user name constraint on that user and all of its data.
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+
+                
+
+
+                //Need to make a stored procedure and insert the values
+                connection.Execute($"dbo.Delete_User @UserID", new { UserID = userID });
+            }
+        
         }
 
         #endregion

@@ -337,5 +337,10 @@ namespace Todozo
             ProfilePage profileButton = new ProfilePage();
             profileButton.Show();
         }
+
+        private void UserName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

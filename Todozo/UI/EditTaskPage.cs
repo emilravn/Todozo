@@ -1,35 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Todozo.UI;
 
 namespace Todozo
-{ 
-    
+{
     public partial class EditTaskPage : Form
     {
-        int PriorityPick = 0;
-         TaskContainer task = HomePage.taskButtonPressed;
+        int PriorityPick;
+        TaskContainer task = HomePage.taskButtonPressed;
         public EditTaskPage()
-        { 
-           
-            InitializeComponent();
-        }
-
-        private void TaskNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+            InitializeComponent();
         }
 
         private void EditTaskPage_Load(object sender, EventArgs e)
         {
-            
             TaskNameTextBox.Text = task.Name;
             DescriptionTextBox.Text = task.Description;
             DateTimePicker.Value = task.Deadline;
@@ -50,25 +35,13 @@ namespace Todozo
                 case 5:
                     radioButton5.Checked = true;
                     break;
-                default:
-                    break;
             }
-        }
-
-        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void CreateTaskButton_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
             db.UpdateTask(task.TaskID, TaskNameTextBox.Text, DescriptionTextBox.Text, DateTimePicker.Value, PriorityPick);
-        }
-
-        private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -88,12 +61,12 @@ namespace Todozo
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            PriorityPick = 4; 
+            PriorityPick = 4;
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            PriorityPick = 5; 
+            PriorityPick = 5;
         }
     }
 }

@@ -72,16 +72,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditListPage.cs">
+    <Compile Include="UI\EditListPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditListPage.Designer.cs">
+    <Compile Include="UI\EditListPage.Designer.cs">
       <DependentUpon>EditListPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditTaskPage.cs">
+    <Compile Include="UI\EditTaskPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditTaskPage.Designer.cs">
+    <Compile Include="UI\EditTaskPage.Designer.cs">
       <DependentUpon>EditTaskPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
@@ -90,7 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TaskContainer.cs">
+    <Compile Include="Functionality\TaskContainer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\CreateListPage.cs">
@@ -113,7 +113,7 @@
     <Compile Include="UI\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListContainer.cs">
+    <Compile Include="Functionality\ListContainer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -138,13 +138,13 @@
     <Compile Include="UI\UserRegistrationPage.Designer.cs">
       <DependentUpon>UserRegistrationPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewTask.cs">
+    <Compile Include="Functionality\ViewTask.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="EditListPage.resx">
+    <EmbeddedResource Include="UI\EditListPage.resx">
       <DependentUpon>EditListPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditTaskPage.resx">
+    <EmbeddedResource Include="UI\EditTaskPage.resx">
       <DependentUpon>EditTaskPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CreateListPage.resx">
@@ -186,11 +186,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon1.ico" />
+    <Content Include="Resources\task_.ico" />
     <None Include="Resources\flag-icon.png" />
     <None Include="Resources\icons8-calendar-48.png" />
     <None Include="Resources\icons8-arrow-48.png" />
     <None Include="Resources\icons8-edit-45.png" />
     <None Include="Resources\icons8-edit-64.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

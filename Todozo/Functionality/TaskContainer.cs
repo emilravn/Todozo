@@ -81,6 +81,7 @@ namespace Todozo
             edit.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 236, 240);
             edit.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 236, 240);
             edit.Height = 45;
+            edit.Cursor = Cursors.Hand;
             edit.Width = 45;
 
             //eventhandler for the edit button
@@ -112,6 +113,7 @@ namespace Todozo
             viewTask.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 236, 240);
             viewTask.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 236, 240);
             viewTask.Height = 45;
+            viewTask.Cursor = Cursors.Hand;
             viewTask.Width = 45;
 
             if (Status)

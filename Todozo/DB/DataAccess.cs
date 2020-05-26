@@ -112,7 +112,7 @@ namespace Todozo
         // We hash the password so we get a string in the database that is impossible to transform back into the original string.
         public static string HashSHA1(string value)
         {
-            // I'm using SHA-1 which will return a string with a length of 40 no matter what the input value is.
+            // SHA-1 will return a string with a length of 40 no matter what the input value is. 
             var sha1 = System.Security.Cryptography.SHA1.Create();
             var inputBytes = Encoding.ASCII.GetBytes(value);
             var hash = sha1.ComputeHash(inputBytes);
@@ -120,8 +120,9 @@ namespace Todozo
             var sb = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
             {
-                sb.Append(i.ToString("X2"));
+                sb.Append(hash[i].ToString("X2"));
             }
+
             return sb.ToString();
         }
 

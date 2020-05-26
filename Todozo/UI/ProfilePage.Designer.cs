@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfilePage));
             this.UserName = new System.Windows.Forms.Label();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UserName
             // 
-            this.UserName.AutoSize = true;
-            this.UserName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UserName.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UserName.Location = new System.Drawing.Point(158, 74);
+            this.UserName.Location = new System.Drawing.Point(0, 0);
             this.UserName.Margin = new System.Windows.Forms.Padding(0);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(167, 25);
+            this.UserName.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
+            this.UserName.Size = new System.Drawing.Size(484, 82);
             this.UserName.TabIndex = 0;
             this.UserName.Text = "Hello @UserName";
             this.UserName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -53,7 +55,7 @@
             this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteUser.Location = new System.Drawing.Point(163, 193);
+            this.btnDeleteUser.Location = new System.Drawing.Point(169, 126);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(142, 37);
             this.btnDeleteUser.TabIndex = 8;
@@ -69,13 +71,14 @@
             this.ClientSize = new System.Drawing.Size(484, 311);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.UserName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(500, 350);
             this.MinimumSize = new System.Drawing.Size(500, 350);
             this.Name = "ProfilePage";
-            this.Text = "ProfilePage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Todozo";
             this.Load += new System.EventHandler(this.ProfilePage_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

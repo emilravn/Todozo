@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using Todozo.UI;
 
-namespace Todozo
+namespace Todozo.UI
 {
     public partial class HomePage : Form
     {
 
         //lists used to store information from database 
-        List<ListContainer> containerLists = new List<ListContainer>();
-        List<TaskContainer> contaionerTasks = new List<TaskContainer>(); 
+        readonly List<ListContainer> containerLists = new List<ListContainer>();
+        readonly List<TaskContainer> containerTasks = new List<TaskContainer>();
 
         //variable that stores information about the list which is selected 
         public static ListContainer listButtonPressed;
         public static TaskContainer taskButtonPressed;
-        
 
 
         public HomePage()
@@ -25,6 +22,13 @@ namespace Todozo
             InitializeComponent();
         }
 
+        public void PopUp(Form popup)
+        {
+            DialogResult dialogresult = popup.ShowDialog();
+            popup.Dispose();
+        }
+
+        #region SystemFunctionsEmptyMethods
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -46,52 +50,35 @@ namespace Todozo
 
         }
 
-        //code that runs when the application starts 
+        #endregion
+
         private void HomePage_Load(object sender, EventArgs e)
         {
             UserName.Text = $"Logged in as {UserLoginPage.activeUser.Name}";
             // Scale our form to look like it did when we designed it.
             // This adjusts between the screen resolution of the design computer and the workstation. 
-            Rectangle resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
-            
+            // Executed if the program is run on a 1920x1080 resolution.
+            var resolution = Screen.PrimaryScreen.Bounds;
+
             if (resolution.Width == 1920 && resolution.Height == 1080)
             {
-                int ourScreenWidth = Screen.FromControl(this).WorkingArea.Width;
-                int ourScreenHeight = Screen.FromControl(this).WorkingArea.Height;
-                float scaleFactorWidth = (float)ourScreenWidth / 1440f;
-                float scaleFactorHeigth = (float)ourScreenHeight / 900f;
-                SizeF scaleFactor = new SizeF(scaleFactorWidth, scaleFactorHeigth);
-                Scale(scaleFactor); 
-
+                var ourScreenWidth = Screen.FromControl(this).WorkingArea.Width;
+                var ourScreenHeight = Screen.FromControl(this).WorkingArea.Height;
+                var scaleFactorWidth = ourScreenWidth / 1440f;
+                var scaleFactorHeight = ourScreenHeight / 900f;
+                var scaleFactor = new SizeF(scaleFactorWidth, scaleFactorHeight);
+                Scale(scaleFactor);
             }
-
-
-
-
             UpdateLists();
-            //ViewTask testTask = new ViewTask();
-           // flowLayoutPanelTask.Controls.Add(testTask);
         }
-
-
-        
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
 
         #region Buttons
 
-        //create list button
+        // Create list button
         private void CreateListButton_Click(object sender, EventArgs e)
         {
-            CreateListPage popup = new CreateListPage();
-            DialogResult dialogresult = popup.ShowDialog();
-            popup.Dispose();
+            var popup = new CreateListPage();
+            PopUp(popup);
 
             UpdateLists();
         }
@@ -106,85 +93,65 @@ namespace Todozo
             else
             {
 
-                CreateTaskPage popup = new CreateTaskPage();
-                DialogResult dialogresult = popup.ShowDialog();
-                popup.Dispose();
+                var popup = new CreateTaskPage();
+                PopUp(popup);
 
                 UpdateTasks(listButtonPressed);
-
             }
 
         }
 
         //eventhandler that executes if a list i clicked on  
-        //maybe make eventhandler public and move to homePage like the rest, and then delete listClicked bool 
         void List_Click(object sender, EventArgs e)
         {
             foreach (ListContainer i in containerLists)
-            { 
-                i.name.BackColor = System.Drawing.Color.FromArgb(235, 236, 240);
-                if (i.ListClicked == true)
+            {
+                i.name.BackColor = Color.FromArgb(235, 236, 240);
+                if (i.ListClicked)
                 {
                     UpdateTasks(i);
                     listButtonPressed = i;
-                    i.ListClicked = false; 
-                    listButtonPressed.name.BackColor = System.Drawing.Color.LightSlateGray;
-                } 
-            }
-        } 
-
-            //eventhandler that executes when the viewTask button is pressed 
-            void viewTask_Click(object sender, EventArgs e)
-            {
-                
-                
-
-                foreach (TaskContainer i in contaionerTasks)
-                {
-                    if (i.TaskClicked == true)
-                    { 
-                        flowLayoutPanelTask.Controls.Clear();
-                        ViewTask viewTask = new ViewTask(i);
-                    viewTask.goBack.Click += new System.EventHandler(viewTask_Click_goBack);
-                    viewTask.moveTask.Click += new System.EventHandler(viewTask_Click_moveTask);
-                    viewTask.completeTask.Click += new System.EventHandler(viewTask_Click_completeTask);
-                    viewTask.deleteTask.Click += new System.EventHandler(viewTask_Click_deleteTask);
-                    flowLayoutPanelTask.Controls.Add(viewTask);
-                    taskButtonPressed = i;   
-                        
-                    }
+                    i.ListClicked = false;
+                    listButtonPressed.name.BackColor = Color.LightSlateGray;
                 }
-
-
             }
+        }
+
+        //eventhandler that executes when the viewTask button is pressed 
+        void viewTask_Click(object sender, EventArgs e)
+        {
+            foreach (TaskContainer i in containerTasks)
+            {
+                if (i.TaskClicked)
+                {
+                    flowLayoutPanelTask.Controls.Clear();
+                    ViewTask viewTask = new ViewTask(i);
+                    viewTask.goBack.Click += new EventHandler(viewTask_Click_goBack);
+                    viewTask.moveTask.Click += new EventHandler(viewTask_Click_moveTask);
+                    viewTask.completeTask.Click += new EventHandler(viewTask_Click_completeTask);
+                    viewTask.deleteTask.Click += new EventHandler(viewTask_Click_deleteTask);
+                    flowLayoutPanelTask.Controls.Add(viewTask);
+                    taskButtonPressed = i;
+                }
+            }
+        }
+
+
 
         void editTask_Click(object sender, EventArgs e)
-        { 
-
-
-
-            foreach (TaskContainer i in contaionerTasks)
+        {
+            foreach (TaskContainer i in containerTasks)
             {
-                if (i.TaskClicked == true)
+                if (i.TaskClicked)
                 {
                     taskButtonPressed = i;
                 }
-
-
-
-                
             }
-
-
-
-
-            EditTaskPage popup = new EditTaskPage();
-            DialogResult dialogresult = popup.ShowDialog();
-            popup.Dispose();
-
+            var popup = new EditTaskPage();
+            PopUp(popup);
 
             flowLayoutPanelTask.Controls.Clear();
-            UpdateTasks(listButtonPressed); 
+            UpdateTasks(listButtonPressed);
         }
         void viewTask_Click_goBack(object sender, EventArgs e)
         {
@@ -194,23 +161,23 @@ namespace Todozo
 
         void viewTask_Click_moveTask(object sender, EventArgs e)
         {
+            // If there is time
+        }
 
-        } 
-
-        //when button is pressed, save bool to database, and retreive it again 
+        // When button is pressed, save bool to database, and retreive it again 
         void viewTask_Click_completeTask(object sender, EventArgs e)
         {
-            DataAccess db = new DataAccess();
-            
+            var db = new DataAccess();
+
             flowLayoutPanelTask.Controls.Clear();
 
             db.InsertStatus(taskButtonPressed.TaskID);
             UpdateTasks(listButtonPressed);
-            
-        } 
+
+        }
         void viewTask_Click_deleteTask(object sender, EventArgs e)
         {
-            DataAccess db = new DataAccess();
+            var db = new DataAccess();
 
             if (MessageBox.Show("Are you sure you want to delete the task?", "message", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -225,21 +192,16 @@ namespace Todozo
         {
             foreach (ListContainer i in containerLists)
             {
-                if (i.ListClicked == true)
+                if (i.ListClicked)
                 {
-
-                    listButtonPressed = i; 
+                    listButtonPressed = i;
                     EditListPage popup = new EditListPage();
-                    DialogResult dialogresult = popup.ShowDialog();
-                    popup.Dispose();
-                    
-                    i.ListClicked = false; 
-                    
+                    PopUp(popup);
+
+                    i.ListClicked = false;
                 }
             }
-
             UpdateLists();
-
         }
 
 
@@ -249,11 +211,9 @@ namespace Todozo
         #region Update functions 
 
         //Function that clears the Container list and Flowlayoutpanel, and updates it accordingly to the data in the database 
-        public void UpdateLists()
+        private void UpdateLists()
         {
-
-
-            DataAccess db = new DataAccess();
+            var db = new DataAccess();
             containerLists.Clear();
             flowLayoutPanelList.Controls.Clear();
 
@@ -269,64 +229,47 @@ namespace Todozo
 
             foreach (ListContainer i in containerLists)
             {
-
-                i.name.Click += new System.EventHandler(List_Click);
-                i.edit.Click += new System.EventHandler(List_Click_editList);
-
+                i.name.Click += new EventHandler(List_Click);
+                i.edit.Click += new EventHandler(List_Click_editList);
             }
-            //Potentionally instead make a function that checks if the container class is already there, then dont add it again 
-
-
         }
 
-       
-        
-        //function that clears the ContaionerTasks list and updates it accordingly to the data in the database
-        public void UpdateTasks(ListContainer list)
+
+
+        // Function that clears the ContainerTasks list and updates it accordingly to the data in the database
+        private void UpdateTasks(ListContainer list)
         {
-            DataAccess db = new DataAccess();
-            contaionerTasks.Clear();
+            var db = new DataAccess();
+            containerTasks.Clear();
             flowLayoutPanelTask.Controls.Clear();
 
             foreach (Task i in db.GetTasks(list.ListID))
             {
-                contaionerTasks.Add(new TaskContainer(i));
+                containerTasks.Add(new TaskContainer(i));
             }
 
-            foreach (TaskContainer i in contaionerTasks)
+            foreach (TaskContainer i in containerTasks)
             {
-                flowLayoutPanelTask.Controls.Add(i); 
+                flowLayoutPanelTask.Controls.Add(i);
                 i.viewTask.Click += new System.EventHandler(viewTask_Click);
                 i.edit.Click += new System.EventHandler(editTask_Click);
             }
-
-
-
-
             //code that creates a new eventhandler for the edit button
-            
         }
-
-
-
-
-
-
-
 
         #endregion
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            
-            UserLoginPage userLoginPage = new UserLoginPage();
-            userLoginPage.Show(); 
+
+            var userLoginPage = new UserLoginPage();
+            userLoginPage.Show();
             Close();
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)
         {
-            ProfilePage profileButton = new ProfilePage();
+            var profileButton = new ProfilePage();
             profileButton.Show();
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace Todozo
+﻿namespace Todozo.UI
 {
     partial class HomePage
     {
@@ -127,10 +127,10 @@
             this.CreateTaskButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.CreateTaskButton.Image = ((System.Drawing.Image)(resources.GetObject("CreateTaskButton.Image")));
             this.CreateTaskButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CreateTaskButton.Location = new System.Drawing.Point(666, -8);
+            this.CreateTaskButton.Location = new System.Drawing.Point(666, 0);
             this.CreateTaskButton.Margin = new System.Windows.Forms.Padding(2);
             this.CreateTaskButton.Name = "CreateTaskButton";
-            this.CreateTaskButton.Size = new System.Drawing.Size(97, 74);
+            this.CreateTaskButton.Size = new System.Drawing.Size(97, 65);
             this.CreateTaskButton.TabIndex = 1;
             this.CreateTaskButton.Text = "Create Task";
             this.CreateTaskButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -150,10 +150,10 @@
             this.CreateListButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.CreateListButton.Image = ((System.Drawing.Image)(resources.GetObject("CreateListButton.Image")));
             this.CreateListButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CreateListButton.Location = new System.Drawing.Point(65, -8);
+            this.CreateListButton.Location = new System.Drawing.Point(65, 0);
             this.CreateListButton.Margin = new System.Windows.Forms.Padding(2);
             this.CreateListButton.Name = "CreateListButton";
-            this.CreateListButton.Size = new System.Drawing.Size(95, 74);
+            this.CreateListButton.Size = new System.Drawing.Size(95, 65);
             this.CreateListButton.TabIndex = 0;
             this.CreateListButton.Text = "Create List";
             this.CreateListButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

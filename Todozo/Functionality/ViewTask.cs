@@ -24,6 +24,17 @@ namespace Todozo
                 0);
         }
 
+
+        public static void FontButton(Button type, float fontsize)
+        {
+            type.Font = new Font(
+                "Segoe UI Light",
+                fontsize,
+                FontStyle.Regular,
+                GraphicsUnit.Point,
+                0);
+        }
+
         public ViewTask(TaskContainer task)
         {
             BackColor = Color.FromArgb(235, 236, 240);
@@ -96,6 +107,7 @@ namespace Todozo
             goBack.Name = "GoBackButton";
             goBack.Size = new Size(129, 76);
             goBack.Text = "Go Back";
+            FontButton(goBack, 12F);
 
             //design code for moveTaskButton 
             Controls.Add(moveTask);
@@ -104,6 +116,7 @@ namespace Todozo
             moveTask.Name = "MoveTaskButton";
             moveTask.Size = new Size(129, 76);
             moveTask.Text = "Move Task";
+            FontButton(moveTask, 12F);
 
             //design code for completeTaskButton 
             Controls.Add(completeTask);
@@ -113,6 +126,7 @@ namespace Todozo
             completeTask.Size = new Size(129, 76);
             completeTask.Text = "Complete Task";
             completeTask.BackColor = Color.FromArgb(62, 191, 92);
+            FontButton(completeTask, 12F);
 
             //design code for deleteTaskButton 
             Controls.Add(deleteTask);
@@ -122,6 +136,7 @@ namespace Todozo
             deleteTask.Size = new Size(129, 76);
             deleteTask.Text = "Delete Task";
             deleteTask.BackColor = Color.FromArgb(221, 87, 87);
+            FontButton(deleteTask, 12F);
         }
     }
 }

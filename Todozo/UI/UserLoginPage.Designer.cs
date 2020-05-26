@@ -46,7 +46,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1136, 194);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Todozo";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -61,7 +61,7 @@
             this.btnLogin.Location = new System.Drawing.Point(572, 304);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(142, 37);
-            this.btnLogin.TabIndex = 7;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -77,7 +77,7 @@
             this.btnCreateAccount.Location = new System.Drawing.Point(422, 304);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(142, 37);
-            this.btnCreateAccount.TabIndex = 8;
+            this.btnCreateAccount.TabIndex = 3;
             this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseVisualStyleBackColor = false;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
@@ -91,7 +91,7 @@
             this.inputTextLoginPassword.MaxLength = 50;
             this.inputTextLoginPassword.Name = "inputTextLoginPassword";
             this.inputTextLoginPassword.Size = new System.Drawing.Size(292, 29);
-            this.inputTextLoginPassword.TabIndex = 10;
+            this.inputTextLoginPassword.TabIndex = 1;
             this.inputTextLoginPassword.Text = "Password";
             this.inputTextLoginPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginPassword_KeyPress);
             this.inputTextLoginPassword.Leave += new System.EventHandler(this.inputTextLoginPassword_Leave);
@@ -106,7 +106,7 @@
             this.inputTextLoginName.MaxLength = 50;
             this.inputTextLoginName.Name = "inputTextLoginName";
             this.inputTextLoginName.Size = new System.Drawing.Size(292, 29);
-            this.inputTextLoginName.TabIndex = 9;
+            this.inputTextLoginName.TabIndex = 0;
             this.inputTextLoginName.Text = "Name";
             this.inputTextLoginName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextLoginName_KeyPress);
             this.inputTextLoginName.Leave += new System.EventHandler(this.inputTextLoginName_Leave);
@@ -119,7 +119,7 @@
             this.label2.Location = new System.Drawing.Point(418, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 21);
-            this.label2.TabIndex = 11;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Log In";
             // 
             // UserLoginPage

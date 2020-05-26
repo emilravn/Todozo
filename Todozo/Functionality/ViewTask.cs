@@ -95,7 +95,7 @@ namespace Todozo
             goBack.Location = new Point(173, 500);
             goBack.Name = "GoBackButton";
             goBack.Size = new Size(129, 76);
-            goBack.Text = "Go back";
+            goBack.Text = "Go Back";
 
             //design code for moveTaskButton 
             Controls.Add(moveTask);
@@ -103,7 +103,7 @@ namespace Todozo
             moveTask.Location = new Point(173, 400);
             moveTask.Name = "MoveTaskButton";
             moveTask.Size = new Size(129, 76);
-            moveTask.Text = "Move task";
+            moveTask.Text = "Move Task";
 
             //design code for completeTaskButton 
             Controls.Add(completeTask);
@@ -111,7 +111,7 @@ namespace Todozo
             completeTask.Location = new Point(423, 500);
             completeTask.Name = "CompleteTaskButton";
             completeTask.Size = new Size(129, 76);
-            completeTask.Text = "Complete task";
+            completeTask.Text = "Complete Task";
             completeTask.BackColor = Color.FromArgb(62, 191, 92);
 
             //design code for deleteTaskButton 
@@ -120,7 +120,7 @@ namespace Todozo
             deleteTask.Location = new Point(423, 400);
             deleteTask.Name = "DeleteTaskButton";
             deleteTask.Size = new Size(129, 76);
-            deleteTask.Text = "Delete task";
+            deleteTask.Text = "Delete Task";
             deleteTask.BackColor = Color.FromArgb(221, 87, 87);
         }
     }

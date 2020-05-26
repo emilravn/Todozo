@@ -42,17 +42,19 @@ namespace Todozo.UI
                         }
                         else
                         {
-                            DataAccess db = new DataAccess();
+                            var db = new DataAccess();
                             UserRegistrationPage.CheckIfUserExist(inputTextLoginName);
                             if (!UserRegistrationPage.CheckIfUserExist(inputTextLoginName))
                             {
-                                MessageBox.Show(@"account does not exist");
+                                MessageBox.Show(@"Account does not exist.");
                             }
 
+                            // For each user we check the password with the database by converting it into hash and guid form. 
+                            // It if matches, the user will be logged in.
                             foreach (var user in db.CheckLogin(inputTextLoginName.Text))
                             {
                                 var dbPassword = Convert.ToString(user.Password);
-                                var dbUserGuid = Convert.ToString(user.UserGuid);
+                                var dbUserGuid = Convert.ToString(user.UserGuid); // Differentiates two users if they have the same password
                                 var hashedPassword = DataAccess.HashSHA1(inputTextLoginPassword.Text + dbUserGuid);
 
                                 if (dbPassword == hashedPassword)

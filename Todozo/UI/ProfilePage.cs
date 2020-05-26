@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace Todozo.UI
 {
+    /// <summary>
+    /// Shows who is logged in and able to delete the user along all of its contents.
+    /// </summary>
     public partial class ProfilePage : Form
     {
         public ProfilePage()
@@ -23,7 +26,7 @@ namespace Todozo.UI
             if (confirmDelete == DialogResult.Yes)
             {
                 // Deletes the user and all of its content.
-                DataAccess db = new DataAccess();
+                var db = new DataAccess();
                 db.DeleteUser(UserLoginPage.activeUser.UserID);
                 Application.Restart();
 

@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Todozo
@@ -14,6 +15,7 @@ namespace Todozo
         public Button completeTask = new Button();
         public Button deleteTask = new Button();
 
+        
         public static void Font(Label type, float fontsize)
         {
             type.Font = new Font(
@@ -40,9 +42,14 @@ namespace Todozo
             BackColor = Color.FromArgb(235, 236, 240);
             Width = 750;
             Height = 600;
-            var panelMargin = new Padding(0, 25, 0, 0);
+            var panelMargin = new Padding(0, 0, 0, 0);
             Margin = panelMargin;
-
+            this.Anchor = AnchorStyles.Top;
+           // Location = new Point(200, 25);
+          //  Dock = DockStyle.Fill;
+           
+            
+         
             //design code for nameLabel 
             Label nameLabel = new Label();
             Controls.Add(nameLabel);

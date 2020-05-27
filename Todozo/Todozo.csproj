@@ -126,6 +126,9 @@
     <Compile Include="UI\ProfilePage.Designer.cs">
       <DependentUpon>ProfilePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\taskFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\UserLoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +142,9 @@
       <DependentUpon>UserRegistrationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Functionality\ViewTask.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ViewTaskPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="UI\EditListPage.resx">

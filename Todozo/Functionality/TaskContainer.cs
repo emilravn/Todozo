@@ -50,6 +50,7 @@ namespace Todozo
             var priorityPoint = new Point(20, 20);
             priority.Location = priorityPoint;
             Font(priority, 12F);
+            priority.Height = 28;
 
             //design code for the name label
             var name = new Label();

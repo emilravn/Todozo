@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Todozo.UI
-{
+{ 
+    /// <summary>
+    /// Contains code the TableLayoutPanel used for the viewTask class
+    /// </summary>
     class ViewTaskPanel : TableLayoutPanel
     {
         public ViewTaskPanel()

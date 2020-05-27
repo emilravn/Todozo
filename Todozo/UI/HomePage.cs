@@ -14,10 +14,10 @@ namespace Todozo.UI
 
         //variable that stores information about the list which is selected 
         public static ListContainer listButtonPressed;
-        public static TaskContainer taskButtonPressed;
+        public static TaskContainer taskButtonPressed; 
+
         taskFlowLayoutPanel flowLayoutPanelTask = new taskFlowLayoutPanel();
         ViewTaskPanel panelViewTask = new ViewTaskPanel(); 
-      //  Point viewTaskPanelLocation;
 
 
         public HomePage()
@@ -28,37 +28,25 @@ namespace Todozo.UI
         public void PopUp(Form popup)
         {
             DialogResult dialogresult = popup.ShowDialog();
-            popup.Dispose();
+            popup.Dispose(); 
         } 
 
         public void InsertViewPanel(Panel viewTask)
         {
-            //ViewTaskPanel panelViewTask = new ViewTaskPanel();
             flowLayoutPanelTask.Controls.Clear();
             this.Controls.Remove (flowLayoutPanelTask);
             this.Controls.Add(panelViewTask); 
             panelViewTask.Controls.Add(viewTask);
             panelViewTask.Size = flowLayoutPanelTask.Size;
-
         } 
 
         public void RemoveViewPanel()
         {
-            
-
             panelViewTask.Controls.Clear();
             this.Controls.Remove(panelViewTask);
             this.Controls.Add(flowLayoutPanelTask);
             flowLayoutPanelTask.Size = panelViewTask.Size;
-            //flowLayoutPanelTask.SizeChanged += new EventHandler(FlowLayoutPannel_SizeChanged);
         }
-
-    //    private void FlowLayoutPannel_SizeChanged(object sender, EventArgs e)
-     //   {
-
-     //           flowLayoutPanelTask.Width = this.ClientSize.Width;
-
-     //   }
 
         #region SystemFunctionsEmptyMethods
 
@@ -138,8 +126,11 @@ namespace Todozo.UI
 
         //eventhandler that executes if a list i clicked on  
         void List_Click(object sender, EventArgs e)
-        { 
-            RemoveViewPanel();
+        {
+            panelViewTask.Controls.Clear();
+            this.Controls.Remove(panelViewTask);
+            this.Controls.Add(flowLayoutPanelTask);
+            //RemoveViewPanel();
             foreach (ListContainer i in containerLists)
             {
                 i.name.BackColor = Color.FromArgb(235, 236, 240);
@@ -160,8 +151,6 @@ namespace Todozo.UI
             {
                 if (i.TaskClicked)
                 {
-
-
                     ViewTask viewTask = new ViewTask(i);
                     viewTask.goBack.Click += new EventHandler(viewTask_Click_goBack);
                     viewTask.moveTask.Click += new EventHandler(viewTask_Click_moveTask);
@@ -192,10 +181,6 @@ namespace Todozo.UI
         }
         void viewTask_Click_goBack(object sender, EventArgs e)
         {
-            //panelViewTask.Controls.Clear();
-            //this.Controls.Remove(panelViewTask);
-            //this.Controls.Add(flowLayoutPanelTask);
-            //flowLayoutPanelTask.Controls.Clear(); 
             RemoveViewPanel();
             UpdateTasks(listButtonPressed); 
         }
@@ -247,7 +232,19 @@ namespace Todozo.UI
             flowLayoutPanelTask.Controls.Clear(); 
         }
 
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
 
+            var userLoginPage = new UserLoginPage();
+            userLoginPage.Show();
+            Close();
+        }
+
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            var profileButton = new ProfilePage();
+            profileButton.Show();
+        }
 
         #endregion
 
@@ -302,18 +299,6 @@ namespace Todozo.UI
 
         #endregion
 
-        private void LogoutButton_Click(object sender, EventArgs e)
-        {
 
-            var userLoginPage = new UserLoginPage();
-            userLoginPage.Show();
-            Close();
-        }
-
-        private void ProfileButton_Click(object sender, EventArgs e)
-        {
-            var profileButton = new ProfilePage();
-            profileButton.Show();
-        }
     }
 }

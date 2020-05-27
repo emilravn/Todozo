@@ -53,6 +53,7 @@ namespace Todozo
             edit.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 236, 240);
             edit.Height = 45;
             edit.Width = 45;
+            edit.Cursor = Cursors.Hand;
 
             //event handler that executes when the name button is clicked
             void edit_Click(object sender, EventArgs e)

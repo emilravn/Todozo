@@ -9,7 +9,7 @@ namespace Todozo.UI
     {
 
         //lists used to store information from database 
-        readonly List<ListContainer> containerLists = new List<ListContainer>();
+       readonly List<ListContainer> containerLists = new List<ListContainer>();
         readonly List<TaskContainer> containerTasks = new List<TaskContainer>();
 
         //variable that stores information about the list which is selected 
@@ -187,7 +187,11 @@ namespace Todozo.UI
 
         void viewTask_Click_moveTask(object sender, EventArgs e)
         {
-            // If there is time
+            var popup = new Todozo();
+            PopUp(popup);
+            RemoveViewPanel();
+            UpdateTasks(listButtonPressed);
+
         }
 
         // When button is pressed, save bool to database, and retreive it again 

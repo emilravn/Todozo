@@ -105,6 +105,16 @@ namespace Todozo
             }
         }
 
+        public void MoveTask(int taskID, int listID)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.ConnectionValue("LokalTodozo")))
+            {
+                var tasks = new List<Task>();
+                tasks.Add(new Task { TaskID = taskID, ListID = listID });
+                connection.Execute("dbo.Move_Task @TaskID, @ListID", tasks);
+            }
+        }
+
         #endregion
 
         #region User

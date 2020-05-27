@@ -69,7 +69,7 @@
             this.TaskNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
             this.TaskNameTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaskNameTextBox.Location = new System.Drawing.Point(123, 115);
-            this.TaskNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.TaskNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TaskNameTextBox.MaxLength = 100;
             this.TaskNameTextBox.Name = "TaskNameTextBox";
             this.TaskNameTextBox.Size = new System.Drawing.Size(248, 22);
@@ -80,7 +80,7 @@
             this.DescriptionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
             this.DescriptionTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DescriptionTextBox.Location = new System.Drawing.Point(123, 167);
-            this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DescriptionTextBox.MaxLength = 500;
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
@@ -92,7 +92,7 @@
             this.DateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
             this.DateTimePicker.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimePicker.Location = new System.Drawing.Point(123, 370);
-            this.DateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.DateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(248, 22);
             this.DateTimePicker.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(123, 448);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(248, 42);
             this.panel1.TabIndex = 4;
@@ -115,7 +115,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(218, 15);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(31, 17);
             this.radioButton2.TabIndex = 6;
@@ -128,7 +128,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(165, 15);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(31, 17);
             this.radioButton3.TabIndex = 7;
@@ -141,7 +141,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(104, 15);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(31, 17);
             this.radioButton4.TabIndex = 8;
@@ -154,7 +154,7 @@
             // 
             this.radioButton5.AutoSize = true;
             this.radioButton5.Location = new System.Drawing.Point(50, 15);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(31, 17);
             this.radioButton5.TabIndex = 9;
@@ -167,7 +167,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(2, 15);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(31, 17);
             this.radioButton1.TabIndex = 5;
@@ -184,7 +184,7 @@
             this.GoBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GoBackButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoBackButton.Location = new System.Drawing.Point(123, 553);
-            this.GoBackButton.Margin = new System.Windows.Forms.Padding(2);
+            this.GoBackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.GoBackButton.Name = "GoBackButton";
             this.GoBackButton.Size = new System.Drawing.Size(97, 62);
             this.GoBackButton.TabIndex = 5;
@@ -199,7 +199,7 @@
             this.CreateTaskButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateTaskButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateTaskButton.Location = new System.Drawing.Point(275, 553);
-            this.CreateTaskButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CreateTaskButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CreateTaskButton.Name = "CreateTaskButton";
             this.CreateTaskButton.Size = new System.Drawing.Size(97, 62);
             this.CreateTaskButton.TabIndex = 6;
@@ -235,7 +235,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(375, 448);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(33, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -271,7 +271,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(518, 674);
+            this.ClientSize = new System.Drawing.Size(518, 673);
             this.Controls.Add(this.TaskNameLabel);
             this.Controls.Add(this.TaskDescriptionLabel);
             this.Controls.Add(this.pictureBox1);
@@ -285,8 +285,9 @@
             this.Controls.Add(this.TaskNameTextBox);
             this.Controls.Add(this.CreateTaskLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(534, 713);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(534, 712);
+            this.MinimumSize = new System.Drawing.Size(534, 712);
             this.Name = "CreateTaskPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Todozo";

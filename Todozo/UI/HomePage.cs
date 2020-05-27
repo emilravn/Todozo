@@ -80,7 +80,9 @@ namespace Todozo.UI
             var popup = new CreateListPage();
             PopUp(popup);
 
+            listButtonPressed = null;
             UpdateLists();
+            flowLayoutPanelTask.Controls.Clear();
         }
 
         //create task button 
